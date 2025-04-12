@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
 
@@ -33,16 +34,16 @@ function Navbar() {
     <div className={`links`} >
         <ul>
             <li>
-                <a href="#">Home</a>
+                <Link to="/">Home</Link>
             </li>
             <li>
-                <a href="#">Cart</a>
+                <Link to="#">Cart</Link>
             </li>
             <li>
-                <a href="#">Search</a>
+                <Link to="#">Search</Link>
             </li>
             <li>
-                <a href="#">Login</a>
+                <Link to="#">Login</Link>
             </li>
         </ul>
     </div>

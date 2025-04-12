@@ -1,11 +1,12 @@
 * {
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 body { 
     font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
+    
 }
 
 h1 {
@@ -25,12 +26,35 @@ li {
 }
 
 
+/* Loader */
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 /* Navbar */
 
 .navbar {
     padding: 0.5rem 0.5rem;
-    margin: 0 10px;
-    width: 92vw;
+    margin: 0 5px 0 10px;
+    width: 90vw;
     height: 30px;
     background-color: #fff;
     display: flex;
@@ -48,11 +72,15 @@ li {
 }
 
 .links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90vw;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin: 10px;
+    margin: 40px 20px;
     background-color: #000;
     opacity: 75%;
     text-align: center;
@@ -68,4 +96,55 @@ li {
     color: #fff;
     font-weight: 800;
     font-size: 1rem ;
+}
+
+
+/* HOME */
+
+.home {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Showcase */
+
+.Sowcase {
+    position: relative;
+    margin:  3rem 1rem 0 1rem;
+    width: 95%;
+    height: 12rem;
+    border-radius: 18px;
+    background-image:url('./assets/cover1.jpeg'); 
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: #fff;
+}
+
+.Sowcase .cover {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 60%;
+}
+
+.Sowcase .data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Sowcase .data h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 5px 0;
+}
+
+.Sowcase .data p {
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 5px 0;
 }
