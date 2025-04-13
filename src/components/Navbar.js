@@ -26,7 +26,7 @@ function Navbar() {
     <>
     <div className="navbar">
         <h1>Silly-Shop</h1>
-        <i class={`fa-solid ${t}`} onClick={toggle}></i>
+        <i className={`fa-solid ${t}`} onClick={toggle}></i>
     </div>
     {
      v ?

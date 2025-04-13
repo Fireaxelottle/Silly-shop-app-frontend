@@ -8,6 +8,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Loader from './components/Loader';
 
+
 // pages
 const Home = lazy(() => import('./pages/Home'));
 

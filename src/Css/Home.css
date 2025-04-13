@@ -1,0 +1,110 @@
+/* HOME */
+
+.home {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Showcase */
+
+.Sowcase {
+    position: relative;
+    margin:  3rem 1rem 0 1rem;
+    width: 95%;
+    height: 12rem;
+    border-radius: 18px;
+    background-image:url('../assets/cover1.jpeg'); 
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: #fff;
+}
+
+.Sowcase .cover {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 60%;
+}
+
+.Sowcase .data {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Sowcase .data h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 5px 0;
+}
+
+.Sowcase .data p {
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 5px 0;
+}
+
+/* Cards */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.main h1 {
+    font-size: 32px;
+    margin: 28px 0;
+}
+
+.main .cards {
+    display:flex;
+    flex-wrap: wrap;
+    padding: 0 auto;
+    align-items: center;
+    justify-content: center;
+        
+}
+
+.main .cards .card {
+    margin: 0.3rem;
+    border: 1.5px solid black;
+    width: 10rem;
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.4rem;
+} 
+
+.main .card  img {
+    width: 100%;
+    height: 10rem;
+    border-bottom: 1px solid black ;
+}
+
+.main h1 {
+    font-size: 1.25rem;
+}
+
+.main p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.main .btn {
+    width: 65%;
+    height: 2rem;
+    background-color: #797980;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top:  0.8rem;         
+}

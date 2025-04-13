@@ -55,7 +55,6 @@ li {
     position: sticky;
     padding: 0.5rem 0.5rem;
     margin: 0 5px 0 10px;
-    width: 90vw;
     height: 30px;
     background-color: #fff;
     display: flex;
@@ -75,8 +74,9 @@ li {
 .links {
     position: absolute;
     z-index: 999;
-    top: 0;
-    left: 0;
+    top: 0.2rem;
+    left: auto;
+    right: auto;
     width: 90vw;
     display: flex;
     align-items: center;
@@ -101,52 +101,3 @@ li {
 }
 
 
-/* HOME */
-
-.home {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-/* Showcase */
-
-.Sowcase {
-    position: relative;
-    margin:  3rem 1rem 0 1rem;
-    width: 95%;
-    height: 12rem;
-    border-radius: 18px;
-    background-image:url('./assets/cover1.jpeg'); 
-    background-repeat: no-repeat;
-    background-size:cover;
-    color: #fff;
-}
-
-.Sowcase .cover {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 60%;
-}
-
-.Sowcase .data {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.Sowcase .data h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    padding: 5px 0;
-}
-
-.Sowcase .data p {
-    font-size: 0.9rem;
-    font-weight: 800;
-    padding: 5px 0;
-}
