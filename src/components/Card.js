@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Card = ({img}) => {
+const Card = ({item}) => {
+
   return (
     <div className="card">
-        <img src={img} alt="" />
-        <h2>Airforce</h2>
-        <p>$30</p>
+        <img src={item.img} alt="" />
+        <h2>{item.name}</h2>
+        <p>{item.price}</p>
         <button className='btn'>Show More</button>
     </div>
   )

@@ -7,6 +7,9 @@ import './App.css';
 // components
 import Navbar from './components/Navbar';
 import Loader from './components/Loader';
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp';
+import Search from './pages/Search';
 
 
 // pages
@@ -19,6 +22,9 @@ function App() {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogIn/>} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Suspense>
     </Router>

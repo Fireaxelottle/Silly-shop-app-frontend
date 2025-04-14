@@ -7,17 +7,17 @@ function Navbar() {
     let a = "fa-bars-staggered"
     let c = "hidden"
     const [t, setT] = useState(b)
-    const [v, setV] = useState(false)
+    const [open, setOpen] = useState(false)
 
 
     const toggle = () => {
         if(t === a){
             setT(b)
-            setV(false)
+            setOpen(false)
         }
         else{
             setT(a)
-            setV(true)
+            setOpen(true)
         }
     }
    
@@ -29,7 +29,7 @@ function Navbar() {
         <i className={`fa-solid ${t}`} onClick={toggle}></i>
     </div>
     {
-     v ?
+     open ?
 
     <div className={`links`} >
         <ul>
@@ -40,10 +40,10 @@ function Navbar() {
                 <Link to="/cart">Cart</Link>
             </li>
             <li>
-                <Link to="#">Search</Link>
+                <Link to="/search">Search</Link>
             </li>
             <li>
-                <Link to="#">Login</Link>
+                <Link to="/login">Login</Link>
             </li>
         </ul>
     </div>

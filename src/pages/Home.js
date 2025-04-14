@@ -1,7 +1,22 @@
 import React from 'react'
-import '../Css/Home.css'
+import '../css/Home.css'
 import Card from '../components/Card'
 import shoe from "../assets/item.jpeg"
+
+const data = [
+  {
+  id: 1,
+  img: shoe , 
+  name: "Airforce" ,
+  price: "$30"
+} , 
+{
+  id: 1,
+  img: shoe , 
+  name: "Airforce" ,
+  price: "$30"
+} 
+]
 
 function Home() {
   return (
@@ -18,12 +33,9 @@ function Home() {
 
           <h1>Shop</h1>
           <div className='cards'>
-            <Card img={shoe}/>
-            <Card img={shoe}/>
-            <Card img={shoe}/>
-            <Card img={shoe}/>
-            <Card img={shoe}/>
-            <Card img={shoe}/>
+            {data.map((item) => (
+              <Card key={item.id} item={item}/>
+            ))}
           </div>
         </div>
     </div>  

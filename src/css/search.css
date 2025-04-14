@@ -1,0 +1,36 @@
+
+.search {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+input {
+    margin: 0.5rem 0;
+    padding: 0.6rem 0.5rem;
+    width: 70%;
+    border-radius: 8px;
+    border: 1.5px solid #000000;
+    font-size: 1rem;
+}
+
+.search .values {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.search .values .value {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.search .values input {
+    width: 40%;
+}
