@@ -6,7 +6,7 @@ import shoe from "../assets/item.jpeg"
 const data = [
   {
   id: 1,
-  img: shoe , 
+  img: "https://m.media-amazon.com/images/I/81Fm0tRFdHL.__AC_SY445_SX342_QL70_FMwebp_.jpg", 
   name: "Airforce" ,
   price: "$30"
 } , 
