@@ -41,25 +41,17 @@ input {
     display: flex;
     text-align: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.search .choises div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
+
 
 .search .choises input {
-    margin: 0;
-    padding: 0;
-    width: 70%;
+    width: 80%;
+    margin-left: 20%;
 }
 
 .search .choises select {
@@ -71,11 +63,20 @@ input {
     background-color: #fff;
 }
 
+.search .choises .Slc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+
+
 .pgch {
     display: flex;
      align-items: center;
      justify-content: center;
-     gap: 0.5rem;
      width: 100%;
 }
 
@@ -89,4 +90,17 @@ input {
     font-size:  0.8rem;
     font-weight: 600;  
     cursor: pointer;
+}
+
+.result {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.result .txt {
+    font-size: 2rem;
 }

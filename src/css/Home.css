@@ -12,10 +12,10 @@
 .Sowcase {
     position: relative;
     margin:  3rem 1rem 0 1rem;
-    width: 95%;
+    width: 80%;
     height: 12rem;
     border-radius: 18px;
-    background-image:url('../assets/cover1.jpeg'); 
+    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRkkE4MAAkihr1xFfnmeMZPRNH4JEhIA-QZA&s'); 
     background-repeat: no-repeat;
     background-size:cover;
     color: #fff;
@@ -25,7 +25,7 @@
     width: 100%;
     height: 100%;
     background-color: #000;
-    opacity: 60%;
+    opacity: 40%;
 }
 
 .Sowcase .data {
@@ -61,58 +61,3 @@
     margin: 28px 0;
 }
 
-.main .cards {
-    display:flex;
-    flex-wrap: wrap;
-    padding: 0 auto;
-    align-items: center;
-    justify-content: center;
-        
-}
-
-.main .cards .card {
-    margin: 0.3rem;
-    border: 1.5px solid black;
-    width: 10rem;
-    height: 18rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.4rem;
-} 
-
-.main .card .im {
-    width: 100%;
-    height: 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid black ;
-}
-
-.main .card  img {
-    width: 80%;
-
-}
-
-.main h1 {
-    font-size: 1.25rem;
-}
-
-.main p {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.main .btn {
-    width: 65%;
-    height: 2rem;
-    background-color: #797980;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 2rem;         
-}

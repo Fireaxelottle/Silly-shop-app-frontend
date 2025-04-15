@@ -22,7 +22,7 @@ const SignUp = () => {
       <hr />
       <div className="sin">
         <p>Already have an account ?</p>
-        <Link to="/signup">Log-in</Link>
+        <Link to="/login">Log-in</Link>
       </div>
     </div>
   )

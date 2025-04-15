@@ -10,6 +10,7 @@ import Loader from './components/Loader';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import Search from './pages/Search';
+import Cart from './pages/Cart';
 
 
 // pages
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<LogIn/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Suspense>
     </Router>
