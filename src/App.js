@@ -1,5 +1,5 @@
-import React, { lazy, Suspense , useEffect  } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { lazy, Suspense ,  } from 'react';
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 
 // css
 import './App.css';

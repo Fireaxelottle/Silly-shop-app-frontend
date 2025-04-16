@@ -1,7 +1,6 @@
-import React, {Component, useEffect,useState} from 'react'
+import React, {useEffect,useState} from 'react'
 import '../css/Home.css'
 import Card from '../components/Card'
-import shoe from "../assets/item.jpeg"
 import axios from 'axios'
 
 
@@ -10,6 +9,8 @@ import axios from 'axios'
 
 
 function Home() {
+
+  const [query] = useState('');
 
   const [data,setData] = useState([]);
    const Getdata = async()=>{
@@ -20,11 +21,11 @@ function Home() {
     } catch (error) {
       console.error('Error fetching search results:', error);
     };
-    }
+    };
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     Getdata();
-  });
+  },[query]);
   return (
     <div className="home">
         <div className='Sowcase'>

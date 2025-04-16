@@ -5,7 +5,6 @@ function Navbar() {
 
     let b = "fa-bars"
     let a = "fa-bars-staggered"
-    let c = "hidden"
     const [t, setT] = useState(b)
     const [open, setOpen] = useState(false)
 

@@ -6,12 +6,6 @@ const LogIn = () => {
   const [username , setUsername] = useState("")
   const [password , setPassword] = useState("")
 
-  const [page, setPage] = useState(1);
-
-
-
-  const isPrevPage = page > 1;
-  const isNextPage = page < 4;
 
   return (
     <div className='registery'>

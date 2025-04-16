@@ -1,5 +1,4 @@
 import React , { useState , useEffect} from 'react'
-import { Link, data } from 'react-router-dom' 
 import '../css/search.css'
 import Card from '../components/Card'
 import axios from 'axios'
