@@ -19,8 +19,8 @@
 }
 
 .Citem {
-    background-color:rgb(217, 228, 236);
-    width: 70%;
+    background-color: #EBEBEB;
+    width: 80%;
     height: 3rem;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
 .Citem .inc {
     width: 50%;
     color: white;
-    background-color: royalblue;
+    background-color: #797980 ;
     border-radius: 2px;
     
 }

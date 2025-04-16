@@ -36,7 +36,10 @@ function Search() {
   return (
     <div className='search'>
       <h1>Search</h1>
+      <div className="ser">
+      <i class="fa-solid fa-magnifying-glass"></i>
      <input type="text" value={search} onChange={(e) => {setSearch(e.target.value) ; newData();}}  placeholder='Search by name...' />
+      </div>
 
     <div className="choises">
  
@@ -70,9 +73,11 @@ function Search() {
           value={maxPrice}
           onChange={(e) => {setMaxPrice(Number(e.target.value)); newData();}}
         />
-    </div>
-    </div>
+     </div>
+   </div>
+  
       <div className="result">
+        <h1>Results:</h1>
         <div className="cards">
          {data.map((item) => (<Card key={item.id} item={item}/>))}
         </div>
