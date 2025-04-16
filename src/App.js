@@ -16,7 +16,9 @@ import Cart from './pages/Cart';
 // pages
 const Home = lazy(() => import('./pages/Home'));
 
+
 function App() {
+
   return (
     <Router>
     <Navbar />

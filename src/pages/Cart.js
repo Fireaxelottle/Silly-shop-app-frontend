@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState } from 'react'
 import "../css/cart.css"
 import CardItem from '../components/CardItem'
 
@@ -20,12 +20,19 @@ function Cart() {
   } 
   ]
 
+  
+
+ 
+
+  const removeItem = () => {
+    
+  }
 
   return (
     <div className='cart'>
       <h1>Cart</h1>
       <div className="items">
-        {data.map((item)=>(<CardItem key={item.id} item={item}/> ))}
+        {data.map((item)=>(<CardItem key={item.id} item={item} removeItem={removeItem}/> ))}
       </div>
       <div className="Total">
         <h2>Total</h2>

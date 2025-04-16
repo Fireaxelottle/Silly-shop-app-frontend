@@ -1,6 +1,20 @@
-import React from 'react'
+import React , { useState } from 'react'
 
-const CardItem = ({item}) => {
+const CardItem = ({item }) => {
+  
+
+  const addItem = () => {
+    item.amount = item.amount + 1
+   }
+
+   const subItem = () => {
+    if (item.amount !== 1) {
+      item.amount = item.amount - 1
+    } else {
+
+    }
+  }
+
   return (
     <div className='Citem'>
         <div className="img"><img src={item.img} alt="" /></div>
@@ -9,11 +23,11 @@ const CardItem = ({item}) => {
             <p>{item.price}</p>
         </div>
         <div className='amount'>
-            <span className='inc'>+</span>
+            <span className='inc' onClick={addItem}>+</span>
             <p>{item.amount}</p>
-            <span className='inc'>-</span>
+            <span className='inc' onClick={subItem}>-</span>
         </div>
-        <button><i class="fa-solid fa-xmark"></i></button>
+        <button><i className="fa-solid fa-xmark"></i></button>
     </div>
   )
 }

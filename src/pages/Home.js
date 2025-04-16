@@ -1,24 +1,30 @@
-import React from 'react'
+import React, {Component, useEffect,useState} from 'react'
 import '../css/Home.css'
 import Card from '../components/Card'
 import shoe from "../assets/item.jpeg"
+import axios from 'axios'
 
-const data = [
-  {
-  id: 1,
-  img: "https://m.media-amazon.com/images/I/81Fm0tRFdHL.__AC_SY445_SX342_QL70_FMwebp_.jpg", 
-  name: "Airforce" ,
-  price: "$30"
-} , 
-{
-  id: 1,
-  img: shoe , 
-  name: "Airforce" ,
-  price: "$30"
-} 
-]
+
+
+
+
 
 function Home() {
+
+  const [data,setData] = useState([]);
+   const Getdata = async()=>{
+      try {
+      const response = await axios.get('http://localhost:5000/api/v1/product/latest');
+      setData(response.data.products);
+  
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    };
+    }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    Getdata();
+  });
   return (
     <div className="home">
         <div className='Sowcase'>
@@ -34,7 +40,7 @@ function Home() {
           <h1>Shop</h1>
           <div className='cards'>
             {data.map((item) => (
-              <Card key={item.id} item={item}/>
+              <Card key={item._id} item={item}/>
             ))}
           </div>
         </div>
