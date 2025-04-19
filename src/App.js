@@ -1,5 +1,7 @@
-import React, { lazy, Suspense ,  } from 'react';
+import React, { lazy, Suspense ,useEffect  } from 'react';
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setScreenWidth } from './redux/uiSlice';
 
 // css
 import './App.css';
@@ -18,6 +20,20 @@ const Home = lazy(() => import('./pages/Home'));
 
 
 function App() {
+
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+      const handleResize = () => {
+        dispatch(setScreenWidth(window.innerWidth));
+      };
+  
+      window.addEventListener('resize', handleResize);
+      // Initial dispatch
+      handleResize();
+  
+      return () => window.removeEventListener('resize', handleResize);
+    }, [dispatch]);
 
   return (
     <Router>
