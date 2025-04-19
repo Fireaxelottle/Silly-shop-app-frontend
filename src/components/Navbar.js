@@ -8,6 +8,7 @@ function Navbar() {
   const [t, setT] = useState(b);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [query, setQuery] = useState("");
 
   const toggle = () => {
     if (t === a) {
@@ -48,7 +49,7 @@ function Navbar() {
         ) : null}
       </>
     );
-  } else  {
+  } else if (screenWidth > 750 && screenWidth < 1000) {
     return (
       <>
         <div className="navbar">
@@ -76,44 +77,33 @@ function Navbar() {
         </div>
       </>
     );
+  } else if (screenWidth > 1000) {
+    return (
+    <>
+    <div className="navbar">
+      <h1>Silly-Shop</h1>
+      <div className="ser">
+      <i className="fa-solid fa-magnifying-glass"></i>
+     <input type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
+      </div>
+      <div className="links">
+        <ul>
+          <li>
+            <Link to="/">
+              <i class="fa-solid fa-house"></i>
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </Link>
+          </li>
+          { user ? "" :<li><Link to="/login">Log-in</Link> </li>}
+        </ul>
+      </div>
+    </div>
+  </> );
   }
-//    else {
-//     return (
-//       <>
-//         <div className="navbar">
-//           <h1>Silly-Shop</h1>
-//           <div className="links">
-//             <ul>
-//               <li>
-//                 <Link to="/">
-//                   <i class="fa-solid fa-house"></i>
-//                 </Link>
-//               </li>
-//               <li>
-//                 <Link to="/cart">
-//                   <i class="fa-solid fa-cart-shopping"></i>
-//                 </Link>
-//               </li>
-//               <li>
-//                 <Link to="/search">
-//                   <i class="fa-solid fa-magnifying-glass"></i>
-//                 </Link>
-//               </li>
-//             </ul>
-//             { user ? "" :
-//               <ul className="user">
-//               <li>
-//                 <Link to="/login">Log-in</Link>
-//               </li>
-//               <li>
-//                 <Link to="/signup">Sign-up</Link>
-//               </li>
-//             </ul>}
-//           </div>
-//         </div>
-//       </>
-//     );
-//   }
 }
 
 export default Navbar;

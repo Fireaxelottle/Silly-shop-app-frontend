@@ -2,8 +2,10 @@ import React , { useState , useEffect} from 'react'
 import '../css/search.css'
 import Card from '../components/Card'
 import axios from 'axios'
+import { useSelector } from "react-redux";
 
 function Search() {
+  const screenWidth = useSelector((state) => state.ui.screenWidth);
 
   const [sort, setSort] = useState("");
   const [maxPrice, setMaxPrice] = useState(100000);
@@ -36,10 +38,12 @@ function Search() {
   return (
     <div className='search'>
       <h1>Search</h1>
+      { screenWidth > 1000 ? "" :
       <div className="ser">
       <i className="fa-solid fa-magnifying-glass"></i>
      <input type="text" value={query} onChange={(e) => {setQuery(e.target.value) ; newData();}}  placeholder='Search by name...' />
-      </div>
+      </div> 
+      }
 
     <div className="choises">
  

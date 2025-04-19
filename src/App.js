@@ -5,6 +5,8 @@ import { setScreenWidth } from './redux/uiSlice';
 
 // css
 import './App.css';
+import './css/tablet.css';
+import './css/laptop.css';
 
 // components
 import Navbar from './components/Navbar';
