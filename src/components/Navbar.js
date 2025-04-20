@@ -22,34 +22,7 @@ function Navbar() {
 
   const screenWidth = useSelector((state) => state.ui.screenWidth);
 
-  if (screenWidth < 750) {
-    return (
-      <>
-        <div className="navbar">
-          <h1>Silly-Shop</h1>
-          <i className={`fa-solid ${t}`} onClick={toggle}></i>
-        </div>
-        {open ? (
-          <div className={`links`}>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/cart">Cart</Link>
-              </li>
-              <li>
-                <Link to="/search">Search</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </ul>
-          </div>
-        ) : null}
-      </>
-    );
-  } else if (screenWidth > 750 && screenWidth < 1000) {
+  if (screenWidth > 750 && screenWidth < 1000) {
     return (
       <>
         <div className="navbar">
@@ -103,6 +76,33 @@ function Navbar() {
       </div>
     </div>
   </> );
+  } else {
+    return (
+      <>
+      <div className="navbar">
+        <h1>Silly-Shop</h1>
+        <i className={`fa-solid ${t}`} onClick={toggle}></i>
+      </div>
+      {open ? (
+        <div className={`links`}>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </div>
+      ) : null}
+    </>
+    );
   }
 }
 

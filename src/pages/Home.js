@@ -28,7 +28,8 @@ function Home() {
   },[query]);
   return (
     <div className="home">
-        <div className='Sowcase'>
+        <div className='Showcase'>
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRkkE4MAAkihr1xFfnmeMZPRNH4JEhIA-QZA&s' alt="" />
             <div className="cover">
             </div>
             <div className='data'>
