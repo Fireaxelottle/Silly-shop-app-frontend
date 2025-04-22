@@ -23,6 +23,16 @@
         width: 20%;
         justify-content: end;
     }
+
+    .navbar li:hover {
+        scale: 1.1;
+    }
+
+    button:hover {
+        scale: 1.1;
+    }
+
+    
     
 }
 

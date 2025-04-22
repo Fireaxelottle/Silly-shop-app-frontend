@@ -12,7 +12,13 @@ function Home() {
 
   const [query] = useState('');
 
-  const [data,setData] = useState([]);
+  const [data,setData] = useState([
+    { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",} ,
+     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",},
+     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",},
+     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",}
+    ]);
+
    const Getdata = async()=>{
       try {
       const response = await axios.get('http://localhost:5000/api/v1/product/latest');
@@ -26,6 +32,7 @@ function Home() {
   useEffect(() => {
     Getdata();
   },[query]);
+  console.log(data);
   return (
     <div className="home">
         <div className='Showcase'>

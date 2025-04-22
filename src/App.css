@@ -186,7 +186,7 @@ input {
 /* CARDS  */
 
 .cards {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     padding: 0 auto;
     align-items: center;

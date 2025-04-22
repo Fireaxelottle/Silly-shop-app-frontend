@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
+
 
 function Navbar() {
   let b = "fa-bars";
@@ -9,6 +10,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const toggle = () => {
     if (t === a) {
@@ -18,6 +20,11 @@ function Navbar() {
       setT(a);
       setOpen(true);
     }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/search`);
   };
 
   const screenWidth = useSelector((state) => state.ui.screenWidth);
@@ -52,12 +59,12 @@ function Navbar() {
     );
   } else if (screenWidth > 1000) {
     return (
-    <>
+    <> 
     <div className="navbar">
-      <h1>Silly-Shop</h1>
+     <h1>Silly-Shop</h1>
       <div className="ser">
       <i className="fa-solid fa-magnifying-glass"></i>
-     <input type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
+     <input onClick={handleSearch} type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
       </div>
       <div className="links">
         <ul>
