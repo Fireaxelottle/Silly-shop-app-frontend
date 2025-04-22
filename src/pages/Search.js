@@ -56,6 +56,7 @@ function Search() {
         
 
         <div className="choises">
+          {screenWidth > 1000 ? <h1>Filter</h1> : ""}
           <div className="Slc">
             <h3>Prices:</h3>
             <select

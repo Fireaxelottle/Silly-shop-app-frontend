@@ -13,10 +13,10 @@ function Home() {
   const [query] = useState('');
 
   const [data,setData] = useState([
-    { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",} ,
-     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",},
-     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",},
-     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",}
+    { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg", price: 1000,}, ,
+     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg", price: 1000,},
+     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg", price: 1000,},
+     { _id: "67a4ee06f8c4745a0fbf0fbc", name: "Adidas Shoes", photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg", price: 1000,}
     ]);
 
    const Getdata = async()=>{
