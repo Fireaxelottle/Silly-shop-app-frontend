@@ -41,5 +41,18 @@
     .cards {
         gap: 2.5rem;
     }
+
+    .Showcase {
+        height: 20rem;
+        width: 75%;
+    }
+
+    .Showcase .data h1 {
+        font-size: 3rem;
+    }
+
+    .Showcase .data p {
+        font-size: 1.2rem;
+    }
     
 }

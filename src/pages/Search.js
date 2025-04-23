@@ -104,7 +104,7 @@ function Search() {
 
           <div className="Slc">
             <h3>Max Price:</h3>
-            <h3>{maxPrice}</h3>
+            <h3>${maxPrice}</h3>
           </div>
           <input
             type="range"

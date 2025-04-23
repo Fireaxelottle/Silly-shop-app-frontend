@@ -8,61 +8,6 @@
     gap: 2rem;
     align-items: center;
 }
-/* Showcase */
-
-.Showcase {
-    position: relative;
-    margin:  3rem 1rem 0 1rem;
-    width: 90%;
-    height: 12rem;
-    border-radius: 18px;
-    background-repeat: no-repeat;
-    background-size:cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-}
-
-.Showcase img {
-    width: 100%; height: 100%;
-    border-radius: 18px;
-}
-
-.Showcase .cover {
-    position: absolute;
-    top: 0;
-    left: 50;    
-    width: 100%;
-    height: 100%;
-    background-color: #4a4949;
-    opacity: 60%;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border-radius: 18px;
-}
-
-.Showcase .data {
-    position: absolute;
-    z-index: 10;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.Showcase .data h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    padding: 5px 0;
-}
-
-.Showcase .data p {
-    font-size: 0.9rem;
-    font-weight: 800;
-    padding: 5px 0;
-}
 
 /* Cards */
 
@@ -79,44 +24,9 @@
 
 
 @media screen and (min-width: 1024px) {
-    .Showcase {
-        height: 26rem;
-    }
-
-    .Showcase .data h1 {
-        font-size: 4rem;
-    }
-
-    .Showcase .data p {
-        font-size: 1.5rem;
-    }
-    .Showcase .data {
-        top: 50%;
-    }
-    .Showcase img {
-        width: 80%;
-        height: 100%;
-    }
-    .Showcase .cover {
-        width: 80%;
-        height: 100%;
-    }
+   
     .main h1 {
         font-size: 2.5rem;
     }
 }
 
-@media screen and  (min-width: 700px) and (max-width: 1024px) {
-    .Showcase {
-        height: 20rem;
-        width: 75%;
-    }
-
-    .Showcase .data h1 {
-        font-size: 3rem;
-    }
-
-    .Showcase .data p {
-        font-size: 1.2rem;
-    }
-}

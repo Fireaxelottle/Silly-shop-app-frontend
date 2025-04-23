@@ -15,6 +15,7 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import Search from './pages/Search';
 import Cart from './pages/Cart';
+import ProductInfo from './pages/ProductInfo';
 
 
 // pages
@@ -47,6 +48,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:id" element={<ProductInfo />} />
       </Routes>
     </Suspense>
     </Router>

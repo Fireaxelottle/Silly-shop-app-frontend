@@ -39,11 +39,33 @@
         scale: 1.1;
     }
     
-    .card .btn {
+    button {
         font-size: 1.2rem;
         padding: 0.1rem;
         height: 2.5rem ;
     }
     
+    .Showcase {
+        height: 26rem;
+    }
+
+    .Showcase .data h1 {
+        font-size: 4rem;
+    }
+
+    .Showcase .data p {
+        font-size: 1.5rem;
+    }
+    .Showcase .data {
+        top: 50%;
+    }
+    .Showcase img {
+        width: 80%;
+        height: 100%;
+    }
+    .Showcase .cover {
+        width: 80%;
+        height: 100%;
+    }
 }
 

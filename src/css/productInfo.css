@@ -1,0 +1,101 @@
+.main {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    margin: 0 1rem 0 1rem;
+   
+    }
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+h2{
+    font-size: 1.8rem;
+}
+
+.amo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.amo .inc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+    background-color: #797980 ;
+    border-radius: 2px;
+}
+
+@media screen and (min-width: 728px) and (max-width: 1024px) {
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .details p {
+        font-size: 2rem;
+    }
+
+    .details span {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main {
+       flex-direction: row;
+       justify-content: normal;
+       align-items: center;
+       padding: 4rem 0;
+       height: 60vh;
+    }
+
+    .main .Showcase {
+        width: 70%;
+        height: 100%;
+    }
+
+    .details {
+        width: 30%;
+        height: 100%;
+        margin: 2rem 0;
+        gap: 3rem;
+    }
+   
+    .inc:hover {
+        cursor: pointer;
+        scale: 1.1;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .details p {
+        font-size: 1.8rem;
+    }
+
+    .details span {
+        font-size: 1.5rem;
+    }
+    
+    button {
+        font-size: 1.5rem;
+        height: 3rem;
+    }
+}
