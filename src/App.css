@@ -257,3 +257,26 @@ input {
     font-weight: 600;
     margin-top: 1rem;         
 }
+
+/* Pagination */
+
+.pgch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    justify-self: flex-end;
+}
+
+.pgch button {
+   width: 4rem;
+   height: 2rem;
+   background-color: #797980;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   font-size:  0.8rem;
+   font-weight: 600;  
+   cursor: pointer;
+}
