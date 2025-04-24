@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp';
 import Search from './pages/Search';
 import Cart from './pages/Cart';
 import ProductInfo from './pages/ProductInfo';
+import OrderInformation from './pages/OrderInformation';
 
 
 // pages
@@ -49,6 +50,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<ProductInfo />} />
+        <Route path="/OrderInformation" element={<OrderInformation />} />
       </Routes>
     </Suspense>
     </Router>

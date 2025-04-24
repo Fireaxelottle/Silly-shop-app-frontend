@@ -12,7 +12,7 @@ function Home() {
     {
       _id: "67a4ee06f8c4745a0fbf0fbc",
       name: "Adidas Shoes",
-      photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
+      photo: "https://m.media-amazon.com/images/I/81Fm0tRFdHL.__AC_SY445_SX342_QL70_FMwebp.jpg",
       price: 1000,
     },
     {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "../css/productInfo.css";
 
+
 const ProductInfo = () => {
   const [data, setData] = useState({
     name: "Adidas Shoes",

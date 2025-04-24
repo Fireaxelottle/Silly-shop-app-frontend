@@ -54,5 +54,38 @@
     .Showcase .data p {
         font-size: 1.2rem;
     }
+
+    .registery  {
+        width: 100%; 
+    }
+
+    .registery h1 {
+        font-size: 3rem;
+    }
+    .registery .sin {
+        width: 70%;
+    }
+    .registery .sin a {
+        width: 60%;
+        height: 3rem;
+    }
+
+    .registery .sin a:hover {
+    cursor: pointer;
+    scale: 1.1;
+    }
+    .registery .inp {
+        width: 70%;
+        gap: 2rem;
+    }
+
+    .registery .inp input {
+        width: 100%;
+        height: 2rem;
+    }
+    .registery .inp button {
+        width: 60%;
+        height: 3rem;
+    }
     
 }
