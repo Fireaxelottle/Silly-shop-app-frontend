@@ -1,4 +1,4 @@
-.main {
+.Cmain {
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -57,18 +57,19 @@ h2{
 }
 
 @media screen and (min-width: 1024px) {
-    .main {
+    .Cmain {
        flex-direction: row;
        justify-content: normal;
        align-items: center;
-       padding: 4rem 0;
-       height: 60vh;
+       padding: 2rem 3rem;
+       height: auto;
     }
 
-    .main .Showcase {
-        width: 70%;
+    .Cmain .Showcase {
+        width: 65%;
         height: 100%;
     }
+
 
     .details {
         width: 30%;

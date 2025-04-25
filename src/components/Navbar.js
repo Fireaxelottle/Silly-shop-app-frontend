@@ -87,8 +87,11 @@ function Navbar() {
     return (
       <>
       <div className="navbar">
-        <h1>Silly-Shop</h1>
+        <div className="head">
         <i className={`fa-solid ${t}`} onClick={toggle}></i>
+        <h1>Silly-Shop</h1>
+        </div> 
+        <Link to="/login">Login</Link>
       </div>
       {open ? (
         <div className={`links`}>
@@ -102,12 +105,10 @@ function Navbar() {
             <li>
               <Link to="/search">Search</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
           </ul>
         </div>
       ) : null}
+      
     </>
     );
   }

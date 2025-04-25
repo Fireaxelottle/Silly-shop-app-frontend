@@ -18,7 +18,7 @@ const ProductInfo = () => {
 
   const { id } = useParams();
   return (
-    <div className="main">
+    <div className="Cmain">
       <div className="Showcase">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRkkE4MAAkihr1xFfnmeMZPRNH4JEhIA-QZA&s"
