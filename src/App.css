@@ -81,9 +81,7 @@ input {
     position: absolute;
     z-index: 999;
     top: 0.2rem;
-    left: auto;
-    right: auto;
-    width: 90vw;
+    width: 60vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,6 +91,12 @@ input {
     opacity: 90%;
     text-align: center;
     border-radius: 5px;
+}
+
+.links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .links li {
@@ -113,8 +117,19 @@ input {
     font-size: 1.1rem;
 }
 
+.navbar img {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 50%;
+}
 
-
+@media screen and (max-width: 700px) {
+     .links {
+        left: 50%;
+        transform: translateX(-55%);
+    }
+}
 
 
 
@@ -319,6 +334,7 @@ input {
 
 .Showcase .cover {
     position: absolute;
+    z-index: 10;
     top: 0;
     left: 50;    
     width: 100%;

@@ -7,20 +7,39 @@ function Navbar() {
   let b = "fa-bars";
   let a = "fa-bars-staggered";
   const [t, setT] = useState(b);
-  const [open, setOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const [openNav, setOpenNav] = useState(false);
+  const [openUsr, setOpenUsr] = useState(false);
+  const [user, setUser] = useState({
+      name: "ali", role: "admin" , img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0YydlYJTpwQjehsYWvZAda5Efy4DCMXJMg&s",
+  });
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  const toggle = () => {
-    if (t === a) {
+  const toggleNavigation = () => {
+    if (t === a  ) {
       setT(b);
-      setOpen(false);
+      setOpenNav(false);
+      setOpenUsr(false);
     } else {
       setT(a);
-      setOpen(true);
+      setOpenNav(true);
+      setOpenUsr(false);
     }
   };
+
+  const toggleUser = () => {
+    if (openUsr) {
+      setT(b);
+      setOpenUsr(false);
+      setOpenNav(false);
+    } else {
+      setT(b);
+      setOpenUsr(true);
+      setOpenNav(false);
+    }
+  };
+
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -51,10 +70,23 @@ function Navbar() {
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </Link>
               </li>
-              { user ? "" :<li><Link to="/login">Log-in</Link> </li>}
+              { user.name ? <li> <img src={user.img} alt=""  onClick={toggleUser}/></li> :<li><Link to="/login">Log-in</Link> </li>}
             </ul>
           </div>
         </div>
+          {openUsr ? (
+        <div className={`Tlinks`}>
+          <ul>
+            <li>
+              <Link to="/orders">Orders</Link>
+            </li>
+            {user.role === "admin" && (<li><Link to="/admin">Admin</Link></li>)}
+            <li>
+              <a>Log-Out</a>
+            </li>
+          </ul>
+        </div>
+      ) : null}
       </>
     );
   } else if (screenWidth > 1000) {
@@ -78,22 +110,35 @@ function Navbar() {
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
           </li>
-          { user ? "" :<li><Link to="/login">Log-in</Link> </li>}
+          { user.name ?  <img src={user.img} alt=""  onClick={toggleUser}/> :<li><Link to="/login">Log-in</Link> </li>}
         </ul>
       </div>
     </div>
+    {openUsr ? (
+        <div className={`Llinks`}>
+          <ul>
+            <li>
+              <Link to="/orders">Orders</Link>
+            </li>
+            {user.role === "admin" && (<li><Link to="/admin">Admin</Link></li>)}
+            <li>
+              <a>Log-Out</a>
+            </li>
+          </ul>
+        </div>
+      ) : null}
   </> );
   } else {
     return (
       <>
       <div className="navbar">
         <div className="head">
-        <i className={`fa-solid ${t}`} onClick={toggle}></i>
+        <i className={`fa-solid ${t}`} onClick={toggleNavigation}></i>
         <h1>Silly-Shop</h1>
         </div> 
-        <Link to="/login">Login</Link>
+        { user.name ?  <img src={user.img} alt="" onClick={toggleUser} /> :<li><Link to="/login">Log-in</Link> </li>}
       </div>
-      {open ? (
+      {openNav ? (
         <div className={`links`}>
           <ul>
             <li>
@@ -104,6 +149,19 @@ function Navbar() {
             </li>
             <li>
               <Link to="/search">Search</Link>
+            </li>
+          </ul>
+        </div>
+      ) : null}
+      {openUsr ? (
+        <div className={`links`}>
+          <ul>
+            <li>
+              <Link to="/orders">Orders</Link>
+            </li>
+            {user.role === "admin" && (<li><Link to="/admin">Admin</Link></li>)}
+            <li>
+              <a>Log-Out</a>
             </li>
           </ul>
         </div>
