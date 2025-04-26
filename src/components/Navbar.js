@@ -80,7 +80,7 @@ function Navbar() {
             <li>
               <Link to="/orders">Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin">Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>
@@ -120,7 +120,7 @@ function Navbar() {
             <li>
               <Link to="/orders">Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin">Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>
@@ -159,7 +159,7 @@ function Navbar() {
             <li>
               <Link to="/orders">Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin">Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>
