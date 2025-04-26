@@ -1,13 +1,12 @@
 import React from 'react'
-import {
-    Column,
-    usePagination,
-    useSortBy,
-    useTable,
-    TableOptions,
-    ColumnFilter,
 
-  } from "@tanstack/react-table";
+import {
+  useReactTable,
+  getCoreRowModel,
+  getSortedRowModel,
+  getPaginationRowModel,
+  flexRender
+} from "@tanstack/react-table";
 
 
 import { Link } from 'react-router-dom';  
@@ -17,50 +16,45 @@ const Table = ({data, columns, showPagination, CCN , heading}) => {
 
     const column = React.useMemo(() => columns, [columns]);
 
-    const options = {
-      columns,
+   
+
+
+
+
+    const table = useReactTable({
       data,
-      initialState: { pageIndex: 6},
-
-    }
-
-
-    console.log(column)
-
-
-
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        page,
-        prepareRow,
-        nextPage,
-        pageCount,
-        state: { pageIndex },
-        previousPage,
-        canNextPage,
-        canPreviousPage,
-      } = useTable(options , useSortBy, usePagination);
+      columns,
+      getCoreRowModel: getCoreRowModel(),
+      getSortedRowModel: getSortedRowModel(),
+      getPaginationRowModel: getPaginationRowModel(),
+      initialState: {
+        pagination: {
+          pageIndex: 0,
+          pageSize: 10,
+        },
+      },
+    })
 
    
     
       return (
-        <div className={CCN}>
+        <div className="table-container">
           <h3>{heading}</h3>
   
-          <table className="table" {...getTableProps()}>
+          <table className="table">
             <thead>
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                      {column.render("Header")}
-                      {column.isSorted && (
+              {table.getHeaderGroups().map(headerGroup => (
+                <tr key={headerGroup.id}>
+                  {headerGroup.headers.map(header => (
+                    <th key={header.id} onClick={header.column.getToggleSortingHandler()}>
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                      {header.column.getIsSorted() && (
                         <span>
                           {" "}
-                          {column.isSortedDesc ? (
+                          {header.column.getIsSorted() === "desc" ? (
                             <i className="fa-solid fa-arrow-down"></i>
                           ) : (
                             <i className="fa-solid fa-arrow-up"></i>
@@ -72,29 +66,34 @@ const Table = ({data, columns, showPagination, CCN , heading}) => {
                 </tr>
               ))}
             </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map((row) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()}>
-                    {row.cells.map((cell) => {
-                      return (
-                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
+            <tbody>
+              {table.getRowModel().rows.map(row => (
+                <tr key={row.id}>
+                  {row.getVisibleCells().map(cell => (
+                    <td key={cell.id}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  ))}
+                </tr>
+              ))}
             </tbody>
           </table>
   
           {showPagination && (
             <div className="table-pagination">
-              <button disabled={!canPreviousPage} onClick={previousPage}>
+              <button
+                disabled={!table.getCanPreviousPage()}
+                onClick={() => table.previousPage()}
+              >
                 Prev
               </button>
-              <span>{`${pageIndex + 1} of ${pageCount}`}</span>
-              <button disabled={!canNextPage} onClick={nextPage}>
+              <span>
+                {`${table.getState().pagination.pageIndex + 1} of ${table.getPageCount()}`}
+              </span>
+              <button
+                disabled={!table.getCanNextPage()}
+                onClick={() => table.nextPage()}
+              >
                 Next
               </button>
             </div>

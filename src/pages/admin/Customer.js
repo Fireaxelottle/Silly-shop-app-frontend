@@ -7,30 +7,38 @@ import Table from '../../components/admin/Table'
 const Customer = () => {
 
     const columns = [
-        {
-          Header: "Avatar",
-          accessor: "avatar",
-        },
-        {
-          Header: "Name",
-          accessor: "name",
-        },
-        {
-          Header: "Gender",
-          accessor: "gender",
-        },
-        {
-          Header: "Email",
-          accessor: "email",
-        },
-        {
-          Header: "Role",
-          accessor: "role",
-        },
-        {
-          Header: "Action",
-          accessor: "action",
-        },
+      {
+        id: "avatar",
+        header: "Avatar",
+        accessorKey: "avatar",
+        cell: ({ getValue }) => getValue(),
+      },
+      {
+        id: "name",
+        header: "Name",
+        accessorKey: "name",
+      },
+      {
+        id: "gender",
+        header: "Gender",
+        accessorKey: "gender",
+      },
+      {
+        id: "email",
+        header: "Email",
+        accessorKey: "email",
+      },
+      {
+        id: "role",
+        header: "Role",
+        accessorKey: "role",
+      },
+      {
+        id: "action",
+        header: "Action",
+        accessorKey: "action",
+        cell: ({ getValue }) => getValue(),
+      },
       ];
       
       const img = "https://randomuser.me/api/portraits/women/54.jpg";
@@ -40,6 +48,7 @@ const Customer = () => {
         {
           avatar: (
             <img
+              className='Cimg'
               style={{
                 borderRadius: "50%",
               }}
@@ -61,6 +70,7 @@ const Customer = () => {
         {
           avatar: (
             <img
+            className='Cimg'
               style={{
                 borderRadius: "50%",
               }}

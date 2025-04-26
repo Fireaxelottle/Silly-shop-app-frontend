@@ -6,6 +6,7 @@
     align-items: center;
     overflow-x: hidden;
     gap: 1rem;
+    margin-top: 4rem;
 }
 
 
@@ -100,11 +101,14 @@ input {
 }
 
 @media  screen and (min-width: 1024px) {
+    .container {
+        margin-top: 5rem;
+    }
     h3 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .search {
         flex-direction: row;
@@ -147,7 +151,7 @@ input {
     }
 
     .result h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     
     }
 }

@@ -167,9 +167,7 @@
 }
 
 
-/* Admin */
 
-@media screen and (min-width: 1024px) {
 
     /*/*//*//* Admin *//*//*/
 
@@ -180,6 +178,11 @@
   flex-direction: column;
   padding: 20px;
   gap: 20px;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  bottom: 0;
+  
 }
 
 #sidebar h3 {
@@ -226,13 +229,13 @@
 
 .admin-container {
   display: flex;
-  gap: 30px;
+  gap: 2rem;
 
 }
 
 .admin-container main {
-  width: 80%;
-  margin: 0 4rem 0 0;
+  width: 70%;
+  margin:5rem 0 0 25%;
 }
 
 .admin-container main .admin-product-table img {
@@ -247,23 +250,34 @@
 
 .admin-container main div {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   padding: 1rem 2rem ;
+
 }
 
 .admin-container main div button {
-  padding: 8px 14px;
-  border-radius: 50px;
-  background-color: #3498db;
+  border-radius: 50%;
+  background-color: #797980;
   color: white;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
   font-weight: 600;
+  margin: 0;
 }
 
-.admin-container main div .trash {
-  background-color: white;
-  color: red;
+.admin-container main .ProductDiv {
+  justify-content: space-between;
 }
+
+.admin-container main  div h3 {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
 
 .admin-container main div button:hover {
   scale: 1.1;
@@ -272,7 +286,7 @@
 
 .admin-container main .search-bar {
   margin: 0 auto;
-  width: 90%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -335,14 +349,16 @@
 
 .graph-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   gap: 2rem;
   width: 100%;
-  padding: 0 2rem;
   margin: 20vh 0;
 }
 
 .graph-container .revenue-graph {
-  width: 60%;
+  width: 80%;
   height: 25rem;
   padding: 2rem;
   align-items: center;
@@ -357,8 +373,7 @@
 }
 
 .graph-container .dashboard-categories {
-  width: 100%;
-  max-width: 16rem;
+  width: 80%;
   align-items: center;
   padding: 2rem;
 } 
@@ -404,6 +419,9 @@
   width: 100%;
   padding: 0 2rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
   gap: 4rem;
 }
 
@@ -420,8 +438,10 @@
 .transaction-container .order-table {
   width: 50%;
   height: 100%;
- 
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* chart */
@@ -429,6 +449,10 @@
 .chart-container {
   width: 100%;
   padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
 .chart-container h1 {
@@ -442,7 +466,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
 
 }
 
@@ -458,12 +482,18 @@
 
 .dashboard-app-container {
   width: 100%;
-  padding: 0 2rem;
- 
+  padding: 2rem 2rem 2rem;
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
 }
 
 .dashboard-app-container h2 {
   font-weight: 800;
+  font-size: 2rem;
 }
 
 .dashboard-app-container section {
@@ -477,6 +507,7 @@
 }
 
 .dashboard-app-container section .stopwatch {
+  margin-bottom: 20rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -494,7 +525,10 @@
   border-radius: 0.5rem;
   border: none;
   font-size: 1rem;
-  background-color: blue;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  background-color: #0000ff;
 } 
 
 .dashboard-app-container section .stopwatch div button:last-child {
@@ -510,8 +544,7 @@
   max-width: 30rem;
   width: 100%;
   gap: 1rem;
-
- 
+  margin-bottom: 20rem;
 }
 
 
@@ -546,15 +579,18 @@
 .coupon-form   button {
   font-weight: 700;
   font-size: 1.1rem;
-  width: 100%;
+  width: 80%;
   padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   color: white;
   cursor: pointer;
-  margin: 2rem 0;
+  margin: 2rem auto;
   border-radius: 10px;
   grid-column: 1/3;
-  background-color: rgb(0, 98, 255);
+  background-color: #797980;
 }
 
 .dashboard-app-container code {
@@ -594,16 +630,24 @@
   cursor: pointer;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
+  transform: rotateX(0deg) rotateY(0deg);
+  animation: toss 1s ease-in-out forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rem;
   }
 
 
 .tosscoin   div {
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
   position: absolute;
   display: grid;
   place-items: center;
+  justify-content: center;
+  align-items: center;
   background-repeat: no-repeat;
   background-size: contain;
   backface-visibility: hidden;
@@ -618,4 +662,125 @@
   background-image: url("../assets/images/tails.png");
   transform: rotateY(-180deg);
 }
+
+.tosscoin:hover {
+  scale: 1.1;
 }
+
+/* table */
+.table-container {
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.table-container img {
+  width: 6rem;
+  height: 4rem;
+}
+
+.table-container .Cimg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.table-container a {
+  color: black;
+  font-weight: 800;
+}
+
+.table-container a:hover {
+  font-size: 1.1rem;
+}
+
+
+.table-container h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.table thead tr {
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #ddd;
+}
+
+.table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.table th:hover {
+  background-color: #f0f0f0;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table-container .trash {
+  background-color: #f8f8f8;
+  color: red;
+  font-size: 1rem;
+}
+
+
+/* Table Pagination */
+.table-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.table-pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.table-pagination button:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.table-pagination button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.table-pagination span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Sort Icons */
+.fa-arrow-up,
+.fa-arrow-down {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+
+

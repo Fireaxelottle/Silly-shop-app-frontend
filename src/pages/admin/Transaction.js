@@ -35,28 +35,36 @@ const Transaction = () => {
   
   const columns = [
     {
-      Header: "Avatar",
-      accessor: "user",
+      id: "user",
+      header: "Avatar",
+      accessorKey: "user",
     },
     {
-      Header: "Amount",
-      accessor: "amount",
+      id: "amount",
+      header: "Amount",
+      accessorKey: "amount",
     },
     {
-      Header: "Discount",
-      accessor: "discount",
+      id: "discount",
+      header: "Discount",
+      accessorKey: "discount",
     },
     {
-      Header: "Quantity",
-      accessor: "quantity",
+      id: "quantity",
+      header: "Quantity",
+      accessorKey: "quantity",
     },
     {
-      Header: "Status",
-      accessor: "status",
+      id: "status",
+      header: "Status",
+      accessorKey: "status",
+      cell: ({ getValue }) => getValue(),
     },
     {
-      Header: "Action",
-      accessor: "action",
+      id: "action",
+      header: "Action",
+      accessorKey: "action",
+      cell: ({ getValue }) => getValue(),
     },
   ];
 

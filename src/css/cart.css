@@ -5,6 +5,7 @@
     flex-direction: column;
     padding-top: 1rem;
     gap: 2rem;
+    margin-top: 4rem;
 }
 
 .items {
@@ -149,6 +150,9 @@
 }
 
 @media  screen and (min-width: 1024px) {
+    .container {
+        margin-top: 5rem;
+    }
     .Citem .amount{
         width: 8rem;
         gap: 1rem;

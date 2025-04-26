@@ -6,26 +6,33 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const columns = [
     {
-      Header: "Photo",
-      accessor: "photo",
+      id: "photo",
+      header: "Photo",
+      accessorKey: "photo",
+      cell: ({ getValue }) => getValue(),
     },
     {
-      Header: "Name",
-      accessor: "name",
+      id: "name",
+      header: "Name",
+      accessorKey: "name",
     },
     {
-      Header: "Price",
-      accessor: "price",
+      id: "price",
+      header: "Price",
+      accessorKey: "price",
     },
     {
-      Header: "Stock",
-      accessor: "stock",
+      id: "stock",
+      header: "Stock",
+      accessorKey: "stock",
     },
     {
-      Header: "Action",
-      accessor: "action",
+      id: "action",
+      header: "Action",
+      accessorKey: "action",
+      cell: ({ getValue }) => getValue(),
     },
-  ];
+];
 
   const img =
     "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=804";
@@ -57,7 +64,7 @@ const Products = () => {
     <div className="admin-container ">
       <AdminSidebar />
       <main>
-        <div>
+        <div className="ProductDiv">
           <h3>PRODUCTS</h3>
           <button>
             <i className="fa-solid fa-plus"></i>

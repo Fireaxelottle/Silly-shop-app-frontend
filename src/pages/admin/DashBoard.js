@@ -6,24 +6,29 @@ import Table from '../../components/admin/Table';
 
 const columns = [
   {
-    Header: "Id",
-    accessor: "_id",
+    id: "id",
+    header: "Id",
+    accessorKey: "_id",
   },
   {
-    Header: "Quantity",
-    accessor: "quantity",
+    id: "quantity",
+    header: "Quantity",
+    accessorKey: "quantity",
   },
   {
-    Header: "Discount",
-    accessor: "discount",
+    id: "discount",
+    header: "Discount",
+    accessorKey: "discount",
   },
   {
-    Header: "Amount",
-    accessor: "amount",
+    id: "amount",
+    header: "Amount",
+    accessorKey: "amount",
   },
   {
-    Header: "Status",
-    accessor: "status",
+    id: "status",
+    header: "Status",
+    accessorKey: "status",
   },
 ];
 
@@ -41,45 +46,12 @@ const DashBoard = () => {
     <div className='admin-container'>
       <AdminSidebar />
       <main>
-        
         <div className='search-bar'>
           <span><i className='fa-solid fa-search'></i></span>
           <input type="text" placeholder='Search for data,user or stocks'/>
           <span><i className='fa-solid fa-bell'></i></span>
          <span><i className="fa-regular fa-circle-user"></i></span> 
         </div>
-
-        <section className="widget-container">
-          <div className="widget-items">
-          <WidgetItem
-            percent={40}
-            amount={true}
-            value={340000}
-            heading="Revenue"
-            color="rgb(0, 115, 255)"
-          />
-          <WidgetItem
-            percent={-14}
-            value={400}
-            color="rgb(0 198 202)"
-            heading="Users"
-          />
-
-          <WidgetItem
-            percent={80}
-            value={23000}
-            color="rgb(255 196 0)"
-            heading="Transactions"
-          />
-    
-          <WidgetItem
-            percent={30}
-            value={1000}
-            color="rgb(76 0 255)"
-            heading="Products"
-          />
-          </div>    
-        </section>
         <section className='graph-container'>
           <div className="revenue-graph">
             <h2>Revenue & Transactions</h2>
@@ -129,7 +101,7 @@ const DashBoard = () => {
             </p>
           </div>
 
-          <Table data={rows} columns={columns} heading={"TOP-TRANSACTIONS"} showPagination={false} CCN={"order-table"}/>
+          <Table data={rows} columns={columns} heading={"TOP-TRANSACTIONS"} showPagination={false} />
         </section>
 
         
@@ -138,20 +110,6 @@ const DashBoard = () => {
   )
 };
 
-const WidgetItem = ({heading , value , percent , color ,amount})=> (<article className='widget'>
-
-  <div className='widget-info'>
-    <p>{heading}</p>
-    <h2>{amount ? `$${value}` : value}</h2>
-    {
-      percent > 0 ? 
-      <p className='green'> <i className="fa-solid fa-caret-up"></i> {percent}% </p>
-      :
-        <p className='red'> <i className="fa-solid fa-caret-down"></i> {percent}% </p>
-    }
-  </div>
-   
-</article>);
 
 const CategoryItem = ({ color, value, heading }) => (
   <div className="category-item">
