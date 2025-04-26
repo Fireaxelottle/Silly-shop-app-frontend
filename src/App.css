@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    
 }
 
 body { 
@@ -54,10 +55,8 @@ input {
 /* Navbar */
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: sticky;
+    top: 0; 
     padding: 0.5rem 0.8rem;
     z-index: 11;
     height: 2rem;
@@ -372,3 +371,265 @@ input {
     padding: 5px 0;
 }
 
+/* Admin */
+@media screen and (max-width: 700px) {
+    
+
+#sidebar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 60%;
+    padding: 0.8rem;
+    background-color: #f8f8f8;
+    display: none;
+  }
+
+  #sidebar h3 {
+    font-size: 1.8rem;
+  }
+
+  #sidebar div {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ /* Admin Container */
+ .admin-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .admin-container main {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+
+  /* Tables */
+  .admin-container main .admin-product-table img {
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .admin-container main .admin-customer-table img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .admin-container main div {
+    padding: 0.5rem;
+  }
+
+  .admin-container main div button {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .admin-container main div h3 {
+    font-size: 1.2rem;
+  }
+
+  .admin-container main .search-bar {
+    width: 95%;
+  }
+
+  /* Widgets */
+  .widget-items {
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1.5rem;
+  }
+
+  .widget {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  /* Graphs */
+  .graph-container {
+    margin: 10vh 0;
+    gap: 1.5rem;
+  }
+
+  .graph-container .revenue-graph {
+    width: 95%;
+    height: 15rem;
+    padding: 1rem;
+  }
+
+  .graph-container .dashboard-categories {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .graph-container .dashboard-categories div .category-item {
+    font-size: 11px;
+  }
+
+  .graph-container .dashboard-categories div .category-item .progress {
+    width: 6rem;
+  }
+
+  /* Transaction Container */
+  .transaction-container {
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  .transaction-container .gender-chart {
+    width: 90%;
+  }
+
+  .transaction-container .order-table {
+    width: 100%;
+  }
+
+  /* Chart Container */
+  .chart-container {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .chart-container section {
+    width: 100%;
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .chart-container section div {
+    max-width: 100%;
+    margin-top: 3rem;
+  }
+
+  /* Apps */
+  .dashboard-app-container {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .dashboard-app-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-app-container section {
+    width: 100%;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .dashboard-app-container section .stopwatch {
+    margin-bottom: 10rem;
+  }
+
+  .dashboard-app-container section .stopwatch div {
+    gap: 2rem;
+  }
+
+  /* Coupon Form */
+  .coupon-form {
+    grid-template-columns: 1fr;
+    margin-bottom: 10rem;
+  }
+
+  .coupon-form button {
+    width: 100%;
+    grid-column: 1;
+  }
+
+  /* Toss Coin */
+  .tosscoin {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 10rem;
+  }
+
+  /* Table Container */
+  .table-container {
+    width: 80%;
+    padding: 0.5rem;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+    align-items: center ;
+    justify-content: center;
+  }
+
+  .table-container img {
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .table-container .Cimg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .table-container h3 {
+    font-size: 1.2rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Table Pagination */
+  .table-pagination {
+    gap: 0.5rem;
+  }
+
+  .table-pagination button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+  @media screen and (max-width: 480px) {
+    .widget {
+        width: 95%;
+      }
+    
+      .graph-container .revenue-graph {
+        height: 12rem;
+      }
+    
+      .graph-container .dashboard-categories div .category-item {
+        font-size: 10px;
+      }
+    
+      .graph-container .dashboard-categories div .category-item .progress {
+        width: 5rem;
+      }
+    
+      .dashboard-app-container h2 {
+        font-size: 1.3rem;
+      }
+    
+      .table-container h3 {
+        font-size: 1.1rem;
+      }
+    
+      .table th,
+      .table td {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+      }
+  }

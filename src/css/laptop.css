@@ -170,6 +170,8 @@
 
 
     /*/*//*//* Admin *//*//*/
+@media screen and (min-width: 1024px) {
+  
 
 #sidebar {
   width: 20%;
@@ -179,10 +181,9 @@
   padding: 20px;
   gap: 20px;
   position: fixed;
-  top: 5rem;
+  top: 4rem;
   left: 0;
-  bottom: 0;
-  
+
 }
 
 #sidebar h3 {
@@ -235,7 +236,7 @@
 
 .admin-container main {
   width: 70%;
-  margin:5rem 0 0 25%;
+  margin: 2rem 0 0 25%;
 }
 
 .admin-container main .admin-product-table img {
@@ -782,5 +783,5 @@
   color: #666;
 }
 
-
+}
 

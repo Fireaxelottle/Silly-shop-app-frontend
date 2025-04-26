@@ -5,55 +5,24 @@ import { Link, Location, useLocation } from "react-router-dom";
 const AdminSidebar = () => {
   const location = useLocation();
 
-  const [showModal, setShowModal] = useState(false);
-  const [phoneActive, setPhoneActive] = useState(
-    window.innerWidth < 1100
-  );
+  
 
-  const resizeHandler = () => {
-    setPhoneActive(window.innerWidth < 1100);
-  };
+  
 
-  useEffect(() => {
-    window.addEventListener("resize", resizeHandler);
+  
 
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
-  }, []);
 
   return (
     <>
-      {phoneActive && (
-        <button id="hamburger" onClick={() => setShowModal(true)}>
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      )}
+    
 
       <aside
         id="sidebar"
-        style={
-          phoneActive
-            ? {
-                width: "20rem",
-                height: "100vh",
-                position: "fixed",
-                top: 0,
-                left: showModal ? "0" : "-20rem",
-                transition: "all 0.5s",
-              }
-            : {}
-        }
       >
         <DivOne location={location} />
         <DivTwo location={location} />
         <DivThree location={location} />
 
-        {phoneActive && (
-          <button id="close-sidebar" onClick={() => setShowModal(false)}>
-            Close
-          </button>
-        )}
       </aside>
     </>
   );
