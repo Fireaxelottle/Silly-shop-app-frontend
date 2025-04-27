@@ -88,20 +88,21 @@ const DashBoard = () => {
           <div className="gender-chart">
             <h2>Gender Ratio</h2>
             <DoughnutChart
+              className="gender-doughnut"
               labels={["Female", "Male"]}
               data={[12, 19]}
               backgroundColor={[
                 "hsl(340, 82%, 56%)",
                 "rgba(53, 162, 235, 0.8)",
               ]}
+
               cutout={90}
             />
             <p>
             <i class="fa-solid fa-person-half-dress"></i>
             </p>
           </div>
-
-          <Table data={rows} columns={columns} heading={"TOP-TRANSACTIONS"} showPagination={false} />
+             <Table data={rows} columns={columns} heading={"TOP-TRANSACTIONS"} showPagination={false} /> 
         </section>
 
         
@@ -113,7 +114,7 @@ const DashBoard = () => {
 
 const CategoryItem = ({ color, value, heading }) => (
   <div className="category-item">
-    <h6>{heading}</h6>
+    <h3>{heading}</h3>
     <div className='progress '>
       <div
         style={{

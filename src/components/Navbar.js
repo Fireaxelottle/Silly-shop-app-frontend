@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toggleNav } from "../redux/adminNav";
 
 
 function Navbar() {
+
+  const dispatch = useDispatch();
   let b = "fa-bars";
   let a = "fa-bars-staggered";
   const [t, setT] = useState(b);
@@ -12,6 +16,7 @@ function Navbar() {
   const [user, setUser] = useState({
       name: "ali", role: "admin" , img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0YydlYJTpwQjehsYWvZAda5Efy4DCMXJMg&s",
   });
+  const [adminOpen, setAdminOpen] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
@@ -32,12 +37,20 @@ function Navbar() {
       setT(b);
       setOpenUsr(false);
       setOpenNav(false);
-    } else {
+    } else  {
       setT(b);
       setOpenUsr(true);
       setOpenNav(false);
-    }
+    } 
   };
+
+  const handleAdmin = () => {
+      setAdminOpen(false);
+  }
+
+  const handleAdminNav = () => {
+   dispatch(toggleNav());
+  }
 
 
 
@@ -56,21 +69,22 @@ function Navbar() {
           <div className="links">
             <ul>
               <li>
-                <Link to="/">
+                <Link to="/" onClick={handleAdmin}>
                   <i class="fa-solid fa-house"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/cart">
+                <Link to="/cart" onClick={handleAdmin}>
                   <i class="fa-solid fa-cart-shopping"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/search">
+                <Link to="/search" onClick={handleAdmin}>
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </Link>
               </li>
               { user.name ? <li> <img src={user.img} alt=""  onClick={toggleUser}/></li> :<li><Link to="/login">Log-in</Link> </li>}
+              { adminOpen ? <li><i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i></li> : ""}
             </ul>
           </div>
         </div>
@@ -78,9 +92,9 @@ function Navbar() {
         <div className={`Tlinks`}>
           <ul>
             <li>
-              <Link to="/orders">Orders</Link>
+              <Link to="/orders" onClick={handleAdmin}>Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard" onClick={()=>setAdminOpen(true)}>Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>
@@ -96,17 +110,17 @@ function Navbar() {
      <h1>Silly-Shop</h1>
       <div className="ser">
       <i className="fa-solid fa-magnifying-glass"></i>
-     <input onClick={handleSearch} type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
+     <input onClick={(e) =>{handleSearch(e); setAdminOpen(false)}} type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
       </div>
       <div className="links">
         <ul>
           <li>
-            <Link to="/">
+            <Link to="/" onClick={handleAdmin}>
               <i class="fa-solid fa-house"></i>
             </Link>
           </li>
           <li>
-            <Link to="/cart">
+            <Link to="/cart" onClick={handleAdmin}>
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
           </li>
@@ -118,7 +132,7 @@ function Navbar() {
         <div className={`Llinks`}>
           <ul>
             <li>
-              <Link to="/orders">Orders</Link>
+              <Link to="/orders" onClick={handleAdmin}>Orders</Link>
             </li>
             {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
             <li>
@@ -136,19 +150,23 @@ function Navbar() {
         <i className={`fa-solid ${t}`} onClick={toggleNavigation}></i>
         <h1>Silly-Shop</h1>
         </div> 
+        <div className="Adm">
         { user.name ?  <img src={user.img} alt="" onClick={toggleUser} /> :<li><Link to="/login">Log-in</Link> </li>}
+        {adminOpen ? <i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i> : ""}
+        </div>
+
       </div>
       {openNav ? (
         <div className={`links`}>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={handleAdmin}>Home</Link>
             </li>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart" onClick={handleAdmin}>Cart</Link>
             </li>
             <li>
-              <Link to="/search">Search</Link>
+              <Link to="/search" onClick={handleAdmin}>Search</Link>
             </li>
           </ul>
         </div>
@@ -157,9 +175,9 @@ function Navbar() {
         <div className={`links`}>
           <ul>
             <li>
-              <Link to="/orders">Orders</Link>
+              <Link to="/orders" onClick={handleAdmin}>Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard" onClick={()=>setAdminOpen(true)}>Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>

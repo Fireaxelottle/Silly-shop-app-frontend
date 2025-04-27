@@ -113,6 +113,12 @@ input {
     font-size: 1rem;
 }
 
+.navbar .Adm {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .navbar  a {
     text-decoration: none;
     color: #000;
@@ -602,34 +608,8 @@ input {
   }
 }
 
-  @media screen and (max-width: 480px) {
-    .widget {
-        width: 95%;
-      }
-    
-      .graph-container .revenue-graph {
-        height: 12rem;
-      }
-    
-      .graph-container .dashboard-categories div .category-item {
-        font-size: 10px;
-      }
-    
-      .graph-container .dashboard-categories div .category-item .progress {
-        width: 5rem;
-      }
-    
-      .dashboard-app-container h2 {
-        font-size: 1.3rem;
-      }
-    
-      .table-container h3 {
-        font-size: 1.1rem;
-      }
-    
-      .table th,
-      .table td {
-        padding: 0.4rem;
-        font-size: 0.8rem;
-      }
+  @media screen and (max-width: 526px) {
+    .transaction-container .gender-chart {
+      width: 100%;
+    }
   }

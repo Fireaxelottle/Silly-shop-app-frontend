@@ -52,7 +52,7 @@
     }
 
     .Llinks {
-        position: absolute;
+        position: fixed;
         z-index: 999;
         top: 1.6rem;
         width: 8rem;

@@ -1,34 +1,42 @@
 import { useEffect, useState } from "react";
 import { Link, Location, useLocation } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 const AdminSidebar = () => {
   const location = useLocation();
 
-  
+  const screenWidth = useSelector((state) => state.ui.screenWidth);
+  const sideBar = useSelector((state) => state.adminNav.nav);
 
-  
+  console.log(sideBar);
 
-  
-
-
-  return (
-    <>
-    
-
-      <aside
-        id="sidebar"
-      >
+  if (screenWidth > 1000) {
+    return (
+      <>
+        <aside id="sidebar">
+          <DivOne location={location} />
+          <DivTwo location={location} />
+          <DivThree location={location} />
+        </aside>
+      </>
+    );
+  } else if (sideBar) {
+    return (
+      <>
+      <aside id="sidebar">
         <DivOne location={location} />
         <DivTwo location={location} />
         <DivThree location={location} />
-
       </aside>
     </>
-  );
+    );
+  } else {
+    return ("")
 };
 
-const DivOne = ({location }) =>(
+};
+
+const DivOne = ({ location }) => (
   <div className="board">
     <h4>Managment</h4>
     <ul>
@@ -60,7 +68,7 @@ const DivOne = ({location }) =>(
   </div>
 );
 
-const DivTwo = ({location }) => (
+const DivTwo = ({ location }) => (
   <div className="charts">
     <h4>Charts</h4>
     <ul>
@@ -86,7 +94,7 @@ const DivTwo = ({location }) => (
   </div>
 );
 
-const DivThree =  ({location })  => (
+const DivThree = ({ location }) => (
   <div className="apps">
     <h4>Apps</h4>
     <ul>
@@ -112,28 +120,23 @@ const DivThree =  ({location })  => (
   </div>
 );
 
-
-const Li = ({ url, text, location, Icon }) =>(
+const Li = ({ url, text, location, Icon }) => (
   <li
     style={{
       backgroundColor: location.pathname.includes(url)
         ? "rgba(0,115,255,0.1)"
         : "white",
-    }}
-  >
+    }}>
     <Link
       className="link"
       to={url}
       style={{
         color: location.pathname.includes(url) ? "rgb(0,115,255)" : "black",
-      }}
-    >
+      }}>
       {Icon}
       {text}
     </Link>
   </li>
 );
-
-
 
 export default AdminSidebar;
