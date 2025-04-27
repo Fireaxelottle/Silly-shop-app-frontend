@@ -609,7 +609,8 @@ input {
 }
 
   @media screen and (max-width: 526px) {
-    .transaction-container .gender-chart {
+    .table-container {
       width: 100%;
+      margin: 1rem 0 1rem 4rem;
     }
   }

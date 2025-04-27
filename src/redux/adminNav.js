@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+    admin:true, 
     nav: false,
 };
 
@@ -11,6 +12,12 @@ const adminNavSlice = createSlice({
         toggleNav: (state) => {
             state.nav = !state.nav;
         },
+        toggleonAdmin: (state) => {
+            state.admin = true
+        },
+        toggleoffAdmin: (state) => {
+            state.admin = false
+        }
     },
 });
 

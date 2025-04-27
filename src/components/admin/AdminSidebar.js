@@ -14,9 +14,9 @@ const AdminSidebar = () => {
     return (
       <>
         <aside id="sidebar">
-          <DivOne location={location} />
-          <DivTwo location={location} />
-          <DivThree location={location} />
+          <DivOne location={location}  screenWidth={screenWidth}/>
+          <DivTwo location={location} screenWidth={screenWidth}/>
+          <DivThree location={location} screenWidth={screenWidth}/>
         </aside>
       </>
     );
@@ -24,9 +24,10 @@ const AdminSidebar = () => {
     return (
       <>
       <aside id="sidebar">
-        <DivOne location={location} />
-        <DivTwo location={location} />
-        <DivThree location={location} />
+        <h1>Admin</h1>
+        <DivOne location={location} screenWidth={screenWidth}/>
+        <DivTwo location={location} screenWidth={screenWidth}/>
+        <DivThree location={location} screenWidth={screenWidth}/>
       </aside>
     </>
     );
@@ -36,9 +37,12 @@ const AdminSidebar = () => {
 
 };
 
-const DivOne = ({ location }) => (
+
+
+const DivOne = ({ location , screenWidth}) => (
   <div className="board">
-    <h4>Managment</h4>
+    <h3>Managment</h3>
+    { screenWidth > 1000 ? 
     <ul>
       <Li
         url="/admin/dashboard"
@@ -64,13 +68,42 @@ const DivOne = ({ location }) => (
         Icon={<i class="fa-solid fa-file-lines"></i>}
         location={location}
       />
-    </ul>
+    </ul> 
+    :
+    <ul>
+    <Li2
+      url="/admin/dashboard"
+      text="Dashboard"
+      Icon={<i class="fa-solid fa-boxes-stacked"></i>}
+      location={location}
+    />
+    <Li2
+      url="/admin/product"
+      text="Product"
+      Icon={<i class="fa-solid fa-bag-shopping"></i>}
+      location={location}
+    />
+    <Li2
+      url="/admin/customer"
+      text="Customer"
+      Icon={<i class="fa-solid fa-users"></i>}
+      location={location}
+    />
+    <Li2
+      url="/admin/transaction"
+      text="Transaction"
+      Icon={<i class="fa-solid fa-file-lines"></i>}
+      location={location}
+    />
+  </ul> 
+    }
   </div>
 );
 
-const DivTwo = ({ location }) => (
+const DivTwo = ({ location , screenWidth }) => (
   <div className="charts">
-    <h4>Charts</h4>
+    <h3>Charts</h3>
+    { screenWidth > 1000 ? 
     <ul>
       <Li
         url="/admin/chart/bar"
@@ -91,32 +124,79 @@ const DivTwo = ({ location }) => (
         location={location}
       />
     </ul>
+    :
+    <ul>
+    <Li2
+      url="/admin/chart/bar"
+      text="Bar"
+      Icon={<i class="fa-solid fa-chart-column"></i>}
+      location={location}
+    />
+    <Li2
+      url="/admin/chart/pie"
+      text="Pie"
+      Icon={<i class="fa-solid fa-chart-pie"></i>}
+      location={location}
+    />
+    <Li2
+      url="/admin/chart/line"
+      text="Line"
+      Icon={<i class="fa-solid fa-chart-line"></i>}
+      location={location}
+    />
+  </ul>
+    }
   </div>
 );
 
-const DivThree = ({ location }) => (
+const DivThree = ({ location , screenWidth }) => (
+ 
   <div className="apps">
-    <h4>Apps</h4>
+    <h3>Apps</h3>
+    { screenWidth > 1000 ?
     <ul>
-      <Li
-        url="/admin/app/stopwatch"
-        text="Stopwatch"
-        Icon={<i class="fa-solid fa-stopwatch"></i>}
-        location={location}
-      />
-      <Li
-        url="/admin/app/coupon"
-        text="Coupon"
-        Icon={<i class="fa-solid fa-ticket"></i>}
-        location={location}
-      />
-      <Li
-        url="/admin/app/toss"
-        text="Toss"
-        Icon={<i class="fa-solid fa-gamepad"></i>}
-        location={location}
-      />
-    </ul>
+    <Li
+      url="/admin/app/stopwatch"
+      text="Stopwatch"
+      Icon={<i class="fa-solid fa-stopwatch"></i>}
+      location={location}
+    />
+    <Li
+      url="/admin/app/coupon"
+      text="Coupon"
+      Icon={<i class="fa-solid fa-ticket"></i>}
+      location={location}
+    />
+    <Li
+      url="/admin/app/toss"
+      text="Toss"
+      Icon={<i class="fa-solid fa-gamepad"></i>}
+      location={location}
+    />
+  </ul>
+     : 
+     <ul>
+     <Li2
+       url="/admin/app/stopwatch"
+       text="Stopwatch"
+       Icon={<i class="fa-solid fa-stopwatch"></i>}
+       location={location}
+     />
+     <Li2
+       url="/admin/app/coupon"
+       text="Coupon"
+       Icon={<i class="fa-solid fa-ticket"></i>}
+       location={location}
+     />
+     <Li2
+       url="/admin/app/toss"
+       text="Toss"
+       Icon={<i class="fa-solid fa-gamepad"></i>}
+       location={location}
+     />
+   </ul>
+     }
+    
   </div>
 );
 
@@ -137,6 +217,21 @@ const Li = ({ url, text, location, Icon }) => (
       {text}
     </Link>
   </li>
-);
+)
+
+const Li2 = ({ url, text, location, Icon }) => (
+  <li>
+    <Link
+      className="link"
+      to={url}
+      style={{
+        color: location.pathname.includes(url) ? "rgb(154, 253, 253)" : "white",
+      }}>
+      {Icon}
+      {text}
+    </Link>
+  </li>
+)
+
 
 export default AdminSidebar;

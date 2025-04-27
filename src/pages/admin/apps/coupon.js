@@ -54,6 +54,7 @@ const Coupon = () => {
         <section>
           <form className="coupon-form" onSubmit={submitHandler}>
             <input
+              className="fir" 
               type="text"
               placeholder="Text to include"
               value={prefix}
@@ -62,6 +63,7 @@ const Coupon = () => {
             />
 
             <input
+              className="fir" 
               type="number"
               placeholder="Coupon Length"
               value={size}
