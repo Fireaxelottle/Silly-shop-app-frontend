@@ -2,46 +2,30 @@ import React, { useState, useEffect } from "react";
 import "../css/search.css";
 import Card from "../components/Card";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProductSearch } from "../redux/product";
 
 function Search() {
   const screenWidth = useSelector((state) => state.ui.screenWidth);
 
-  const [sort, setSort] = useState("");
-  const [maxPrice, setMaxPrice] = useState(100000);
-  const [category, setCategory] = useState("ALL");
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([
-    {
-      _id: "67a4ee06f8c4745a0fbf0fbc",
-      name: "Adidas Shoes",
-      photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
-      price: 1000,
-    },
-    {
-      _id: "67a4ee06f8c4745a0fbf0fbc",
-      name: "Adidas Shoes",
-      photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
-      price: 1000,
-    }
-  ]);
+  const dispatch = useDispatch();
 
-  const newData = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:5000/api/v1/product/find"
-      );
-      setResults(response.data.products);
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
-  };
+  const [sort, setSort] = useState("");
+
+  const [maxPrice, setMaxPrice] = useState(100000);
+
+  const [category, setCategory] = useState("ALL");
+
+  const [page, setPage] = useState(1);
+
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    newData();
+    dispatch(fetchProductSearch(query));
   }, [query]);
+
+  const results = useSelector((state) => state.product.productSearch);
 
   const isPrevPage = page > 1;
   const isNextPage = page < results.length / 10;
@@ -65,7 +49,6 @@ function Search() {
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-              newData();
             }}
             placeholder="Search by name..."
           />
@@ -81,7 +64,6 @@ function Search() {
               value={category}
               onChange={(e) => {
                 setCategory(e.target.value);
-                newData();
               }}>
               <option value="">ALL</option>
               <option value="">Category 1</option>
@@ -94,7 +76,6 @@ function Search() {
               value={sort}
               onChange={(e) => {
                 setSort(e.target.value);
-                newData();
               }}>
               <option value="">None</option>
               <option value="asc">Price (Low to High)</option>
@@ -113,7 +94,6 @@ function Search() {
             value={maxPrice}
             onChange={(e) => {
               setMaxPrice(Number(e.target.value));
-              newData();
             }}
           />
         </div>

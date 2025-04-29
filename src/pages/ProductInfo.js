@@ -1,23 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../css/productInfo.css";
+import { useSelector , useDispatch } from "react-redux";
+import { fetchProductId } from "../redux/product";
 
 
 const ProductInfo = () => {
-  const [data, setData] = useState({
-    name: "Adidas Shoes",
-    photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
-    price: 1000,
-    stock: 20,
-  });
+
+  const dispatch = useDispatch();
 
   const [amount, setAmount] = useState(1);
 
-  const isPrevAmo = amount > 1;
-  const isNextAmo = amount < data.stock;
+ 
 
   const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(fetchProductId(id));
+  }, [id]);
+
+  const data = useSelector((state) => state.product.productInfo[id]);
+
+   const isPrevAmo = amount > 1;
+   const isNextAmo = amount < data.stock;
   return (
+    <>
     <div className="Cmain">
       <div className="Showcase">
         <img
@@ -38,6 +45,26 @@ const ProductInfo = () => {
         <button>Add to cart</button>
       </div>
     </div>
+    <div className="Cmain">
+      <div className="reviews">
+        <h2>Reviews</h2>
+        <div className="review">
+          <div className="user">
+            <img src={data.reviews[0].userImg} alt="" />
+            <h3>{data.reviews[0].userName}</h3>
+          </div>
+          <p>{data.reviews[0].comment}</p>
+        </div>
+        <div className="review">
+          <div className="user">
+            <img src={data.reviews[1].userImg} alt="" />
+            <h3>{data.reviews[1].userName}</h3>
+          </div>
+          <p>{data.reviews[1].comment}</p>
+        </div>
+      </div>
+    </div>
+    </>
   );
 };
 

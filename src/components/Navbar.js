@@ -1,24 +1,33 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleNav } from "../redux/adminNav";
+import { fetchProductSearch } from "../redux/product";
 
 
 function Navbar() {
 
   const dispatch = useDispatch();
+
   let b = "fa-bars";
+
   let a = "fa-bars-staggered";
+
   const [t, setT] = useState(b);
+
   const [openNav, setOpenNav] = useState(false);
+
   const [openUsr, setOpenUsr] = useState(false);
-  const [user, setUser] = useState({
-      name: "ali", role: "admin" , img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0YydlYJTpwQjehsYWvZAda5Efy4DCMXJMg&s",
-  });
-  const [adminOpen, setAdminOpen] = useState(false);
+
+  const [user, setUser] = useState({});
+
+  const admin = useSelector((state) => state.adminNav.admin);
+  
   const [query, setQuery] = useState("");
+
   const navigate = useNavigate();
+
 
   const toggleNavigation = () => {
     if (t === a  ) {
@@ -44,9 +53,7 @@ function Navbar() {
     } 
   };
 
-  const handleAdmin = () => {
-      setAdminOpen(false);
-  }
+  
 
   const handleAdminNav = () => {
    dispatch(toggleNav());
@@ -59,6 +66,12 @@ function Navbar() {
     navigate(`/search`);
   };
 
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+      dispatch(fetchProductSearch(query));
+    }, [query]);
+  
   const screenWidth = useSelector((state) => state.ui.screenWidth);
 
   if (screenWidth > 750 && screenWidth < 1000) {
@@ -69,22 +82,22 @@ function Navbar() {
           <div className="links">
             <ul>
               <li>
-                <Link to="/" onClick={handleAdmin}>
+                <Link to="/" >
                   <i class="fa-solid fa-house"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/cart" onClick={handleAdmin}>
+                <Link to="/cart" >
                   <i class="fa-solid fa-cart-shopping"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/search" onClick={handleAdmin}>
+                <Link to="/search" >
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </Link>
               </li>
               { user.name ? <li> <img src={user.img} alt=""  onClick={toggleUser}/></li> :<li><Link to="/login">Log-in</Link> </li>}
-              { adminOpen ? <li><i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i></li> : ""}
+              { admin ? <li><i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i></li> : ""}
             </ul>
           </div>
         </div>
@@ -92,9 +105,9 @@ function Navbar() {
         <div className={`Tlinks`}>
           <ul>
             <li>
-              <Link to="/orders" onClick={handleAdmin}>Orders</Link>
+              <Link to="/orders" >Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin/dashboard" onClick={()=>setAdminOpen(true)}>Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard" >Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>
@@ -110,17 +123,17 @@ function Navbar() {
      <h1>Silly-Shop</h1>
       <div className="ser">
       <i className="fa-solid fa-magnifying-glass"></i>
-     <input onClick={(e) =>{handleSearch(e); setAdminOpen(false)}} type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
+     <input onClick={(e) =>{handleSearch(e); }} type="text" value={query} onChange={(e) => {setQuery(e.target.value)}}  placeholder='Search by name...' />
       </div>
       <div className="links">
         <ul>
           <li>
-            <Link to="/" onClick={handleAdmin}>
+            <Link to="/" >
               <i class="fa-solid fa-house"></i>
             </Link>
           </li>
           <li>
-            <Link to="/cart" onClick={handleAdmin}>
+            <Link to="/cart" >
               <i class="fa-solid fa-cart-shopping"></i>
             </Link>
           </li>
@@ -132,7 +145,7 @@ function Navbar() {
         <div className={`Llinks`}>
           <ul>
             <li>
-              <Link to="/orders" onClick={handleAdmin}>Orders</Link>
+              <Link to="/orders" >Orders</Link>
             </li>
             {user.role === "admin" && (<li><Link to="/admin/dashboard">Admin</Link></li>)}
             <li>
@@ -151,8 +164,8 @@ function Navbar() {
         <h1>Silly-Shop</h1>
         </div> 
         <div className="Adm">
-        { user.name ?  <img src={user.img} alt="" onClick={toggleUser} /> :<li><Link to="/login">Log-in</Link> </li>}
-        {adminOpen ? <i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i> : ""}
+        { user.name ?  <img src={user.img} alt="" onClick={toggleUser} /> :<Link to="/login">Log-in</Link> }
+        {admin ? <i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i> : ""}
         </div>
 
       </div>
@@ -160,13 +173,13 @@ function Navbar() {
         <div className={`links`}>
           <ul>
             <li>
-              <Link to="/" onClick={handleAdmin}>Home</Link>
+              <Link to="/" >Home</Link>
             </li>
             <li>
-              <Link to="/cart" onClick={handleAdmin}>Cart</Link>
+              <Link to="/cart" >Cart</Link>
             </li>
             <li>
-              <Link to="/search" onClick={handleAdmin}>Search</Link>
+              <Link to="/search" >Search</Link>
             </li>
           </ul>
         </div>
@@ -175,9 +188,9 @@ function Navbar() {
         <div className={`links`}>
           <ul>
             <li>
-              <Link to="/orders" onClick={handleAdmin}>Orders</Link>
+              <Link to="/orders" >Orders</Link>
             </li>
-            {user.role === "admin" && (<li><Link to="/admin/dashboard" onClick={()=>setAdminOpen(true)}>Admin</Link></li>)}
+            {user.role === "admin" && (<li><Link to="/admin/dashboard" >Admin</Link></li>)}
             <li>
               <a>Log-Out</a>
             </li>

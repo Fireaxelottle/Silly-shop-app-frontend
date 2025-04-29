@@ -131,7 +131,7 @@
   #sidebar {
     height: auto;
     position: absolute;
-    top: 5rem;
+    top: 3rem;
     width: 60vw;
     display: flex;
     flex-direction: column;
@@ -146,7 +146,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 1rem;
-    z-index: 999;
+    z-index: 1111;
   }
 
   #sidebar div {
@@ -194,19 +194,31 @@
   .admin-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    width: 95vw;
   }
 
   .admin-container main {
     width: 100%;
-    margin: 1rem auto;
+    margin: 1rem 0;
     display: flex;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0.8rem;
+    padding: 1rem;
+  }
+
+  .admin-container main section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .admin-container main .admin-product-table img {
@@ -283,11 +295,11 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    margin: 15vh 0;
+    margin: 2vh 1rem;
   }
 
   .graph-container .revenue-graph {
-    width: 90%;
+    width: 100%;
     height: 20rem;
     padding: 1.5rem;
     align-items: center;
@@ -299,11 +311,11 @@
     flex-direction: column;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap : 2rem;
   }
 
   .graph-container .dashboard-categories {
-    width: 90%;
+    width: 100%;
     align-items: center;
     padding: 1.5rem;
   }
@@ -311,14 +323,17 @@
   .graph-container .dashboard-categories .categories {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     gap: 0.8rem;
+    
   }
 
   .graph-container .dashboard-categories div .category-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem ;
     width: 100%;
     font-size: 12px;
     padding: 0.3rem 0;
@@ -336,7 +351,7 @@
   }
 
   .graph-container .dashboard-categories div .category-item .progress {
-    margin-left: auto;
+
     width: 7rem;
     height: 0.8rem;
     background-color: rgb(217, 217, 217);
@@ -375,7 +390,6 @@
     background-color: #ffffff;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .transaction-container .order-table {
     width: 100%;
@@ -387,7 +401,6 @@
     background-color: #ffffff;
     padding: 0rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   /* Additional styles for chart responsiveness */
@@ -606,8 +619,8 @@
 
   /* Table Container */
   .table-container {
-    width: 80%;
-    margin: 1.5rem 3rem 1.5rem 0;
+    width: 100%;
+    margin: 1.5rem 0rem 1.5rem 1rem;
     padding: 0.8rem 2rem;
     display: flex;
     flex-direction: column;
@@ -645,12 +658,6 @@
   }
 
   /* Table Styles */
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0.8rem 0;
-    overflow-x: auto;
-  }
 
   .table thead tr {
     background-color: #f8f8f8;
@@ -731,5 +738,14 @@
     margin-left: 0.4rem;
     font-size: 0.75rem;
     color: #666;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 624px) {
+  .table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0.8rem 0;
+    margin-left: 2.5rem;
   }
 }

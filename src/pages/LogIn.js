@@ -1,20 +1,30 @@
 import React , { useState} from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux' 
+import { loginUser } from '../redux/user'
 
 const LogIn = () => {
 
   const [username , setUsername] = useState("")
   const [password , setPassword] = useState("")
-
-
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(loginUser({ username, password }));
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
+    }
+  };
   return (
-    <div className='registery'>
+    <div className='registery' onKeyDown={handleKeyDown}>
       <h1>Log-In</h1>
 
       <div className="inp">
         <input type="text" value={username} placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
         <input type="text" value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
-        <button>Log-In</button>
+        <button onClick={handleSubmit}>Log-In</button>
       </div>
       <hr />
       <div className="sin">

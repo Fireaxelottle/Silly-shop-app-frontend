@@ -1,50 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "../css/Home.css";
 import Card from "../components/Card";
-import axios from "axios";
+
+import { useDispatch, useSelector } from "react-redux";
+
 
 function Home() {
   
   const [query] = useState("");
   const [page, setPage] = useState(1);
 
-  const [data, setData] = useState([
-    {
-      _id: "67a4ee06f8c4745a0fbf0fbc",
-      name: "Adidas Shoes",
-      photo: "https://m.media-amazon.com/images/I/81Fm0tRFdHL.__AC_SY445_SX342_QL70_FMwebp.jpg",
-      price: 1000,
-    },
-    {
-      _id: "67a4ee06f8c4745a0fbf0fbc",
-      name: "Adidas Shoes",
-      photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
-      price: 1000,
-    },
-    {
-      _id: "67a4ee06f8c4745a0fbf0fbc",
-      name: "Adidas Shoes",
-      photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
-      price: 1000,
-    },
-    {
-      _id: "67a4ee06f8c4745a0fbf0fbc",
-      name: "Adidas Shoes",
-      photo: "uploads/b6d62f0a-9f0e-477c-bb45-7aa4192bbace.jpg",
-      price: 1000,
-    },
-  ]);
+ 
 
-  const Getdata = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:5000/api/v1/product/latest"
-      );
-      setData(response.data.products);
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
-  };
+  const Dispatch = useDispatch();
+
+
+
+  const data = useSelector((state)=>state.product.productInfo);
+  console.log(data)
 
   const isPrevPage = page > 1;
   const isNextPage = page < data.length / 10;
@@ -54,12 +27,7 @@ function Home() {
     (page - 1) * itemsPerPage,
     page * itemsPerPage
   );
-
- 
-
-  useEffect(() => {
-    Getdata();
-  }, [query]);
+  
   console.log(data);
   return (
     <div className="home">

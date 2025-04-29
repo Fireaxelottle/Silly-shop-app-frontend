@@ -188,12 +188,6 @@ const DivThree = ({ location , screenWidth }) => (
        Icon={<i class="fa-solid fa-ticket"></i>}
        location={location}
      />
-     <Li2
-       url="/admin/app/toss"
-       text="Toss"
-       Icon={<i class="fa-solid fa-gamepad"></i>}
-       location={location}
-     />
    </ul>
      }
     
@@ -225,8 +219,11 @@ const Li2 = ({ url, text, location, Icon }) => (
       className="link"
       to={url}
       style={{
-        color: location.pathname.includes(url) ? "rgb(154, 253, 253)" : "white",
-      }}>
+        color:  "white",
+        gap: "10px",
+        display: "flex",
+      }
+      }>
       {Icon}
       {text}
     </Link>

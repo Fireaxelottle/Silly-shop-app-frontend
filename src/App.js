@@ -1,27 +1,29 @@
-import React, { lazy, Suspense ,useEffect  } from 'react';
-import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { setScreenWidth } from './redux/uiSlice';
+import React, { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setScreenWidth } from "./redux/uiSlice";
+import { fetchProductInfo } from "./redux/product";
+import { checkAdminPath } from "./redux/adminNav";
 
 // css
-import './App.css';
-import './css/tablet.css';
-import './css/laptop.css';
+import "./App.css";
+import "./css/tablet.css";
+import "./css/laptop.css";
 
 // components
-import Navbar from './components/Navbar';
-import Loader from './components/Loader';
-
-
+import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
+import { loadUser } from "./redux/user";
 
 // pages
-const Home = lazy(() => import('./pages/Home'));
-const Search = lazy(() => import('./pages/Search'));
-const Cart = lazy(() => import('./pages/Cart'));
-const ProductInfo = lazy(() => import('./pages/ProductInfo'));
-const LogIn = lazy(() => import('./pages/LogIn'));
-const SignUp = lazy(() => import('./pages/SignUp'));
-const OrderInformation = lazy(() => import('./pages/OrderInformation'));
+const Home = lazy(() => import("./pages/Home"));
+const Search = lazy(() => import("./pages/Search"));
+const Cart = lazy(() => import("./pages/Cart"));
+const ProductInfo = lazy(() => import("./pages/ProductInfo"));
+const LogIn = lazy(() => import("./pages/LogIn"));
+const SignUp = lazy(() => import("./pages/SignUp"));
+const OrderInformation = lazy(() => import("./pages/OrderInformation"));
+const Order = lazy(() => import("./pages/Order"));
 // Admin imports
 const DashBoard = lazy(() => import("./pages/admin/DashBoard"));
 const Products = lazy(() => import("./pages/admin/Products"));
@@ -34,49 +36,50 @@ const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
 const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
 const Toss = lazy(() => import("./pages/admin/apps/toss"));
 
-
-
 function App() {
-
   const dispatch = useDispatch();
 
-    useEffect(() => {
-      const handleResize = () => {
-        dispatch(setScreenWidth(window.innerWidth));
-      };
-  
-      window.addEventListener('resize', handleResize);
-      // Initial dispatch
-      handleResize();
-  
-      return () => window.removeEventListener('resize', handleResize);
-    }, [dispatch]);
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(setScreenWidth(window.innerWidth));
+    };
+
+    window.addEventListener("resize", handleResize);
+    // Initial dispatch
+    handleResize();
+
+    dispatch(fetchProductInfo());
+    dispatch(loadUser());
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [dispatch]);
 
   return (
     <Router>
-    <Navbar />
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LogIn/>} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:id" element={<ProductInfo />} />
-        <Route path="/OrderInformation" element={<OrderInformation />} />
-        {/* Admin  */}
-        <Route path="/admin/dashboard" element={<DashBoard />} />
-            <Route path="/admin/product" element={<Products />} />
-            <Route path="/admin/customer" element={<Customer />} />
-            <Route path="/admin/transaction" element={<Transaction />} />
-            <Route path="/admin/chart/line" element={<LineChart />} />
-            <Route path="/admin/chart/pie" element={<PieChart />} />
-            <Route path="/admin/chart/bar" element={<BarChart />} />
-            <Route path="/admin/app/coupon" element={<Coupon />} />
-            <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
-            <Route path="/admin/app/toss" element={<Toss />} />
-      </Routes>
-    </Suspense>
+      <Navbar />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:id" element={<ProductInfo />} />
+          <Route path="/OrderInformation" element={<OrderInformation />} />
+          <Route path="/order" element={<Order />} />
+          {/* Admin  */}
+          <Route path="/admin/dashboard" element={<DashBoard />} />
+          <Route path="/admin/product" element={<Products />} />
+          <Route path="/admin/customer" element={<Customer />} />
+          <Route path="/admin/transaction" element={<Transaction />} />
+          <Route path="/admin/chart/line" element={<LineChart />} />
+          <Route path="/admin/chart/pie" element={<PieChart />} />
+          <Route path="/admin/chart/bar" element={<BarChart />} />
+          <Route path="/admin/app/coupon" element={<Coupon />} />
+          <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
+          <Route path="/admin/app/toss" element={<Toss />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
