@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+
+
+const COOKIE_EXPIRES = 7;
 
 const initialState = {
   user: null,
@@ -13,14 +17,13 @@ export const loginUser = createAsyncThunk(
   'user/login',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/login', {
+      const response = await axios.post('http://localhost:4000/api/v1/user/login', {
         email,
         password
       });
 
       // Store token in localStorage
-      localStorage.setItem('token', response.data.token);
-      
+      Cookies.set('token', response.data.token, { expires: COOKIE_EXPIRES });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -32,7 +35,7 @@ export const signupUser = createAsyncThunk(
     'user/signup',
     async ({ username, email, password , profile ,birth }, { rejectWithValue }) => {
       try {
-        const response = await axios.post('http://localhost:5000/api/v1/register', {
+        const response = await axios.post('http://localhost:4000/api/v1/user/register', {
           username,
           email,
           password, 
@@ -41,8 +44,8 @@ export const signupUser = createAsyncThunk(
         });
   
         // Store token in localStorage
-        localStorage.setItem('token', response.data.token);
-        
+        Cookies.set('token', response.data.token, { expires: COOKIE_EXPIRES });
+    
         return response.data;
       } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -57,12 +60,12 @@ export const loadUser = createAsyncThunk(
   'user/loadUser',
   async (_, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem('token');
-      
-      const response = await axios.get('http://localhost:5000/api/v1/me', {
+      const token = Cookies.get('token');
+      const response = await axios.get('http://localhost:4000/api/v1/user/me', {
         headers: {
           Authorization: `Bearer ${token}`
         }
+
       });
       
       return response.data;
@@ -77,7 +80,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem('token');
+      Cookies.remove('token');
       state.user = null;
       state.token = null;
       state.loading = false;
@@ -96,7 +99,6 @@ const userSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
         state.token = action.payload.token;
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -111,7 +113,6 @@ const userSlice = createSlice({
       })
       .addCase(signupUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
         state.token = action.payload.token;
       })
       .addCase(signupUser.rejected, (state, action) => {

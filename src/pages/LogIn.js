@@ -5,24 +5,20 @@ import { loginUser } from '../redux/user'
 
 const LogIn = () => {
 
-  const [username , setUsername] = useState("")
+  const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(loginUser({ username, password }));
+
+  const handleSubmit = () => {
+    dispatch(loginUser({ email, password }));
   };
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSubmit(e);
-    }
-  };
+ 
   return (
-    <div className='registery' onKeyDown={handleKeyDown}>
+    <div className='registery'>
       <h1>Log-In</h1>
 
       <div className="inp">
-        <input type="text" value={username} placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
+        <input type="text" value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
         <input type="text" value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
         <button onClick={handleSubmit}>Log-In</button>
       </div>

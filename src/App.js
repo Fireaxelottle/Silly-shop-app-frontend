@@ -1,9 +1,10 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect ,useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { setScreenWidth } from "./redux/uiSlice";
 import { fetchProductInfo } from "./redux/product";
 import { checkAdminPath } from "./redux/adminNav";
+import Cookies from 'js-cookie';
 
 // css
 import "./App.css";
@@ -37,19 +38,34 @@ const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
 const Toss = lazy(() => import("./pages/admin/apps/toss"));
 
 function App() {
+
   const dispatch = useDispatch();
 
+  const hasFetchedUser = useRef(false);
+
+  const token = Cookies.get('token');
+
+  const user = useSelector((state) => state.user.user);
+
   useEffect(() => {
+    // Handle window resize
     const handleResize = () => {
       dispatch(setScreenWidth(window.innerWidth));
     };
 
     window.addEventListener("resize", handleResize);
-    // Initial dispatch
-    handleResize();
+    handleResize(); // Initial dispatch
 
-    dispatch(fetchProductInfo());
+    // Check for authentication token
+    
+     if (token && !hasFetchedUser.current) {
+    hasFetchedUser.current = true; // prevent future runs
     dispatch(loadUser());
+  }
+
+    // Load initial data
+    dispatch(fetchProductInfo());
+    dispatch(checkAdminPath());
 
     return () => window.removeEventListener("resize", handleResize);
   }, [dispatch]);

@@ -6,6 +6,7 @@ import { toggleNav } from "../redux/adminNav";
 import { fetchProductSearch } from "../redux/product";
 
 
+
 function Navbar() {
 
   const dispatch = useDispatch();
@@ -20,7 +21,6 @@ function Navbar() {
 
   const [openUsr, setOpenUsr] = useState(false);
 
-  const [user, setUser] = useState({});
 
   const admin = useSelector((state) => state.adminNav.admin);
   
@@ -73,6 +73,10 @@ function Navbar() {
     }, [query]);
   
   const screenWidth = useSelector((state) => state.ui.screenWidth);
+ 
+   const user = useSelector((state) => state.user.user);
+
+   console.log(user);
 
   if (screenWidth > 750 && screenWidth < 1000) {
     return (
@@ -83,21 +87,21 @@ function Navbar() {
             <ul>
               <li>
                 <Link to="/" >
-                  <i class="fa-solid fa-house"></i>
+                  <i className="fa-solid fa-house"></i>
                 </Link>
               </li>
               <li>
                 <Link to="/cart" >
-                  <i class="fa-solid fa-cart-shopping"></i>
+                  <i className="fa-solid fa-cart-shopping"></i>
                 </Link>
               </li>
               <li>
                 <Link to="/search" >
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </Link>
               </li>
-              { user.name ? <li> <img src={user.img} alt=""  onClick={toggleUser}/></li> :<li><Link to="/login">Log-in</Link> </li>}
-              { admin ? <li><i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i></li> : ""}
+              { user ? <li> <img src={user.photo} alt=""  onClick={toggleUser}/></li> :<li><Link to="/login">Log-in</Link> </li>}
+              { admin ? <li><i className="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i></li> : ""}
             </ul>
           </div>
         </div>
@@ -129,15 +133,15 @@ function Navbar() {
         <ul>
           <li>
             <Link to="/" >
-              <i class="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>
             </Link>
           </li>
           <li>
             <Link to="/cart" >
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i className="fa-solid fa-cart-shopping"></i>
             </Link>
           </li>
-          { user.name ?  <img src={user.img} alt=""  onClick={toggleUser}/> :<li><Link to="/login">Log-in</Link> </li>}
+          { user ?  <img src={user.photo} alt=""  onClick={toggleUser}/> :<li><Link to="/login">Log-in</Link> </li>}
         </ul>
       </div>
     </div>
@@ -164,8 +168,8 @@ function Navbar() {
         <h1>Silly-Shop</h1>
         </div> 
         <div className="Adm">
-        { user.name ?  <img src={user.img} alt="" onClick={toggleUser} /> :<Link to="/login">Log-in</Link> }
-        {admin ? <i class="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i> : ""}
+        { user.name ?  <img src={user.photo} alt="" onClick={toggleUser} /> :<Link to="/login">Log-in</Link> }
+        {admin ? <i className="fa-solid fa-ellipsis-vertical" onClick={handleAdminNav}></i> : ""}
         </div>
 
       </div>

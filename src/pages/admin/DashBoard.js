@@ -99,7 +99,7 @@ const DashBoard = () => {
               cutout={90}
             />
             <p>
-            <i class="fa-solid fa-person-half-dress"></i>
+            <i className="fa-solid fa-person-half-dress"></i>
             </p>
           </div>
              <Table data={rows} columns={columns} heading={"TOP-TRANSACTIONS"} showPagination={false} /> 

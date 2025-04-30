@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-    admin:true, 
+    admin: false, 
     nav: false,
 };
 

@@ -47,25 +47,25 @@ const DivOne = ({ location , screenWidth}) => (
       <Li
         url="/admin/dashboard"
         text="Dashboard"
-        Icon={<i class="fa-solid fa-boxes-stacked"></i>}
+        Icon={<i className="fa-solid fa-boxes-stacked"></i>}
         location={location}
       />
       <Li
         url="/admin/product"
         text="Product"
-        Icon={<i class="fa-solid fa-bag-shopping"></i>}
+        Icon={<i className="fa-solid fa-bag-shopping"></i>}
         location={location}
       />
       <Li
         url="/admin/customer"
         text="Customer"
-        Icon={<i class="fa-solid fa-users"></i>}
+        Icon={<i className="fa-solid fa-users"></i>}
         location={location}
       />
       <Li
         url="/admin/transaction"
         text="Transaction"
-        Icon={<i class="fa-solid fa-file-lines"></i>}
+        Icon={<i className="fa-solid fa-file-lines"></i>}
         location={location}
       />
     </ul> 
@@ -74,25 +74,25 @@ const DivOne = ({ location , screenWidth}) => (
     <Li2
       url="/admin/dashboard"
       text="Dashboard"
-      Icon={<i class="fa-solid fa-boxes-stacked"></i>}
+      Icon={<i className="fa-solid fa-boxes-stacked"></i>}
       location={location}
     />
     <Li2
       url="/admin/product"
       text="Product"
-      Icon={<i class="fa-solid fa-bag-shopping"></i>}
+      Icon={<i className="fa-solid fa-bag-shopping"></i>}
       location={location}
     />
     <Li2
       url="/admin/customer"
       text="Customer"
-      Icon={<i class="fa-solid fa-users"></i>}
+      Icon={<i className="fa-solid fa-users"></i>}
       location={location}
     />
     <Li2
       url="/admin/transaction"
       text="Transaction"
-      Icon={<i class="fa-solid fa-file-lines"></i>}
+      Icon={<i className="fa-solid fa-file-lines"></i>}
       location={location}
     />
   </ul> 
@@ -108,19 +108,19 @@ const DivTwo = ({ location , screenWidth }) => (
       <Li
         url="/admin/chart/bar"
         text="Bar"
-        Icon={<i class="fa-solid fa-chart-column"></i>}
+        Icon={<i className="fa-solid fa-chart-column"></i>}
         location={location}
       />
       <Li
         url="/admin/chart/pie"
         text="Pie"
-        Icon={<i class="fa-solid fa-chart-pie"></i>}
+        Icon={<i className="fa-solid fa-chart-pie"></i>}
         location={location}
       />
       <Li
         url="/admin/chart/line"
         text="Line"
-        Icon={<i class="fa-solid fa-chart-line"></i>}
+        Icon={<i className="fa-solid fa-chart-line"></i>}
         location={location}
       />
     </ul>
@@ -129,19 +129,19 @@ const DivTwo = ({ location , screenWidth }) => (
     <Li2
       url="/admin/chart/bar"
       text="Bar"
-      Icon={<i class="fa-solid fa-chart-column"></i>}
+      Icon={<i className="fa-solid fa-chart-column"></i>}
       location={location}
     />
     <Li2
       url="/admin/chart/pie"
       text="Pie"
-      Icon={<i class="fa-solid fa-chart-pie"></i>}
+      Icon={<i className="fa-solid fa-chart-pie"></i>}
       location={location}
     />
     <Li2
       url="/admin/chart/line"
       text="Line"
-      Icon={<i class="fa-solid fa-chart-line"></i>}
+      Icon={<i className="fa-solid fa-chart-line"></i>}
       location={location}
     />
   </ul>
@@ -158,19 +158,19 @@ const DivThree = ({ location , screenWidth }) => (
     <Li
       url="/admin/app/stopwatch"
       text="Stopwatch"
-      Icon={<i class="fa-solid fa-stopwatch"></i>}
+      Icon={<i className="fa-solid fa-stopwatch"></i>}
       location={location}
     />
     <Li
       url="/admin/app/coupon"
       text="Coupon"
-      Icon={<i class="fa-solid fa-ticket"></i>}
+      Icon={<i className="fa-solid fa-ticket"></i>}
       location={location}
     />
     <Li
       url="/admin/app/toss"
       text="Toss"
-      Icon={<i class="fa-solid fa-gamepad"></i>}
+      Icon={<i className="fa-solid fa-gamepad"></i>}
       location={location}
     />
   </ul>
@@ -179,13 +179,13 @@ const DivThree = ({ location , screenWidth }) => (
      <Li2
        url="/admin/app/stopwatch"
        text="Stopwatch"
-       Icon={<i class="fa-solid fa-stopwatch"></i>}
+       Icon={<i className="fa-solid fa-stopwatch"></i>}
        location={location}
      />
      <Li2
        url="/admin/app/coupon"
        text="Coupon"
-       Icon={<i class="fa-solid fa-ticket"></i>}
+       Icon={<i className="fa-solid fa-ticket"></i>}
        location={location}
      />
    </ul>

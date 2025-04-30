@@ -17,7 +17,7 @@ function Home() {
 
 
   const data = useSelector((state)=>state.product.productInfo);
-  console.log(data)
+  
 
   const isPrevPage = page > 1;
   const isNextPage = page < data.length / 10;
@@ -28,7 +28,6 @@ function Home() {
     page * itemsPerPage
   );
   
-  console.log(data);
   return (
     <div className="home">
       <div className="Showcase">

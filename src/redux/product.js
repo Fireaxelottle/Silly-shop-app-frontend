@@ -7,7 +7,7 @@ export const fetchProductInfo = createAsyncThunk(
   "product/fetchProductInfo",
   async () => {
     const response = await axios.get(
-      "http://localhost:5000/api/v1/product/latest"
+      "http://localhost:4000/api/v1/product/latest"
     );
     return response.data.products;
   }
@@ -17,7 +17,7 @@ export const fetchProductSearch = createAsyncThunk(
   "product/fetchProductSearch",
   async (query) => {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/product/search?query=${query}`
+      `http://localhost:4000/api/v1/product/find?query=${query}`
     );
     return response.data.products;
   }
@@ -27,7 +27,7 @@ export const fetchProductId = createAsyncThunk(
   "product/fetchProductId",
   async (id) => {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/product/${id}`
+      `http://localhost:4000/api/v1/product/${id}`
     );
     return response.data.products;
   }
