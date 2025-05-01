@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch , useSelector } from "react-redux";
 import { setScreenWidth } from "./redux/uiSlice";
 import { fetchProductInfo } from "./redux/product";
-import { checkAdminPath } from "./redux/adminNav";
 import Cookies from 'js-cookie';
 
 // css
@@ -15,6 +14,7 @@ import "./css/laptop.css";
 import Navbar from "./components/Navbar";
 import Loader from "./components/Loader";
 import { loadUser } from "./redux/user";
+import { current } from "@reduxjs/toolkit";
 
 // pages
 const Home = lazy(() => import("./pages/Home"));
@@ -58,17 +58,18 @@ function App() {
 
     // Check for authentication token
     
-     if (token && !hasFetchedUser.current) {
-    hasFetchedUser.current = true; // prevent future runs
+     if (token ) {
+    // prevent future runs
     dispatch(loadUser());
   }
 
     // Load initial data
     dispatch(fetchProductInfo());
-    dispatch(checkAdminPath());
+
+    
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [dispatch]);
+  }, [dispatch ]);
 
   return (
     <Router>

@@ -3,6 +3,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 
+
+
 const COOKIE_EXPIRES = 7;
 
 const initialState = {
@@ -24,7 +26,9 @@ export const loginUser = createAsyncThunk(
 
       // Store token in localStorage
       Cookies.set('token', response.data.token, { expires: COOKIE_EXPIRES });
+
       return response.data;
+     
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
@@ -33,20 +37,24 @@ export const loginUser = createAsyncThunk(
 
 export const signupUser = createAsyncThunk(
     'user/signup',
-    async ({ username, email, password , profile ,birth }, { rejectWithValue }) => {
+    async ({ name, email, password , photo ,dob , gender }, { rejectWithValue }) => {
       try {
         const response = await axios.post('http://localhost:4000/api/v1/user/register', {
-          username,
+          name,
           email,
           password, 
-          profile,
-          birth,
+          gender, 
+          dob,
+          photo
         });
   
         // Store token in localStorage
         Cookies.set('token', response.data.token, { expires: COOKIE_EXPIRES });
     
         return response.data;
+
+
+
       } catch (error) {
         return rejectWithValue(error.response.data.message);
       }

@@ -195,6 +195,16 @@ input {
   font-size: 1rem;
 }
 
+.registery .inp select {
+  margin: 0.5rem 0;
+  padding: 0.6rem 0.5rem;
+  width: 70%;
+  border-radius: 8px;
+  border: 1.5px solid #000000;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
 .registery .inp button {
   width: 55%;
   height: 2.5rem;
@@ -210,11 +220,9 @@ input {
 
 .registery .sin {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 0.8rem;
-  width: 100%;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .registery .sin p {
@@ -222,19 +230,14 @@ input {
 }
 
 .registery .sin a {
-  width: 55%;
-  height: 2.5rem;
-  background-color: #797980;
-  color: #fff;
+  background-color: none;
+  color: #3498db;
   border: none;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.3rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.5rem;
 }
 
 .registery hr {

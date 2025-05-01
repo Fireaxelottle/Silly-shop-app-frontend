@@ -17,7 +17,7 @@ export const fetchProductSearch = createAsyncThunk(
   "product/fetchProductSearch",
   async (query) => {
     const response = await axios.get(
-      `http://localhost:4000/api/v1/product/find?query=${query}`
+      `http://localhost:4000/api/v1/product/find?name=${query}`
     );
     return response.data.products;
   }
@@ -33,16 +33,28 @@ export const fetchProductId = createAsyncThunk(
   }
 );
 
+export const fetchCategories = createAsyncThunk(
+  "product/fetchCategories",
+  async () => {
+    const response = await axios.get(
+      "http://localhost:4000/api/v1/product/categories"
+    );
+    return response.data.categories;
+  }
+);
+
 const productSlice = createSlice({
   name: "product",
   initialState: {
     productInfo: [],
     productSearch: [],
     productId: [],
+    categories: [],
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductInfo.fulfilled, (state, action) => {
@@ -53,6 +65,9 @@ const productSlice = createSlice({
       })
       .addCase(fetchProductId.fulfilled, (state, action) => {
         state.productId = action.payload;
+      })
+      .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.categories = action.payload;
       })
       .addMatcher(
         (action) => action.type.endsWith("/pending"),

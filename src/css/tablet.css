@@ -103,10 +103,6 @@
   .registery .sin {
     width: 70%;
   }
-  .registery .sin a {
-    width: 60%;
-    height: 3rem;
-  }
 
   .registery .sin a:hover {
     cursor: pointer;

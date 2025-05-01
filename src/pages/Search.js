@@ -3,18 +3,21 @@ import "../css/search.css";
 import Card from "../components/Card";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProductSearch } from "../redux/product";
+import { fetchCategories, fetchProductSearch } from "../redux/product";
 
 function Search() {
   const screenWidth = useSelector((state) => state.ui.screenWidth);
 
   const dispatch = useDispatch();
 
+
+
   const [sort, setSort] = useState("");
+
+  const [category, setCategory] = useState("");
 
   const [maxPrice, setMaxPrice] = useState(100000);
 
-  const [category, setCategory] = useState("ALL");
 
   const [page, setPage] = useState(1);
 
@@ -23,8 +26,10 @@ function Search() {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(fetchProductSearch(query));
-  }, [query]);
+    dispatch(fetchCategories());
+  }, [query , dispatch]);
 
+  const categories = useSelector((state) => state.product.categories);
   const results = useSelector((state) => state.product.productSearch);
 
   const isPrevPage = page > 1;
@@ -65,9 +70,11 @@ function Search() {
               onChange={(e) => {
                 setCategory(e.target.value);
               }}>
-              <option value="">ALL</option>
-              <option value="">Category 1</option>
-              <option value="">Category 2</option>
+                {categories.map((cat) => (
+                  <option key={cat._id} value={cat._id}>
+                    {cat.name}
+                  </option>
+                ))}
             </select>
           </div>
           <div className="Slc">

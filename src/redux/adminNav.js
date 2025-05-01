@@ -1,21 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-    admin: false, 
+    admin: true, 
     nav: false,
 };
 
-export const checkAdminPath = createAsyncThunk(
-    'adminNav/checkPath',
-    async (_, { dispatch }) => {
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('/admin')) {
-            dispatch(toggleonAdmin());
-        } else {
-            dispatch(toggleoffAdmin());
-        }
-    }
-);
+
 
 const adminNavSlice = createSlice({
     name: 'adminNav',

@@ -145,10 +145,7 @@
     .registery .sin {
         width: 50%;
     }
-    .registery .sin a {
-        width: 50%;
-        height: 3rem;
-    }
+
 
     .registery .sin a:hover {
     cursor: pointer;
