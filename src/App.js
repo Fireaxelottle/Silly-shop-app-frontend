@@ -43,7 +43,6 @@ function App() {
 
   const hasFetchedUser = useRef(false);
 
-  const token = Cookies.get('token');
 
   const user = useSelector((state) => state.user.user);
 
@@ -57,6 +56,7 @@ function App() {
     handleResize(); // Initial dispatch
 
     // Check for authentication token
+    const token = localStorage.getItem('token');
     
      if (token ) {
     // prevent future runs

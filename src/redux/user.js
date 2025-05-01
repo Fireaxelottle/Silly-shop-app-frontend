@@ -25,7 +25,7 @@ export const loginUser = createAsyncThunk(
       });
 
       // Store token in localStorage
-      Cookies.set('token', response.data.token, { expires: COOKIE_EXPIRES });
+      localStorage.setItem('token', response.data.token);
 
       return response.data;
      
@@ -49,7 +49,7 @@ export const signupUser = createAsyncThunk(
         });
   
         // Store token in localStorage
-        Cookies.set('token', response.data.token, { expires: COOKIE_EXPIRES });
+        localStorage.setItem('token', response.data.token);
     
         return response.data;
 
@@ -68,7 +68,7 @@ export const loadUser = createAsyncThunk(
   'user/loadUser',
   async (_, { rejectWithValue }) => {
     try {
-      const token = Cookies.get('token');
+      const token = localStorage.getItem('token');
       const response = await axios.get('http://localhost:4000/api/v1/user/me', {
         headers: {
           Authorization: `Bearer ${token}`
@@ -89,6 +89,7 @@ const userSlice = createSlice({
   reducers: {
     logout: (state) => {
       Cookies.remove('token');
+      localStorage.removeItem('token');
       state.user = null;
       state.token = null;
       state.loading = false;
