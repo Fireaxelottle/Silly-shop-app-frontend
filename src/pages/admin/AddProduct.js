@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createProduct, fetchCategories } from "../../redux/product";
+import { createProduct} from "../../redux/product";
 
 const AddProduct = () => {
 
@@ -13,7 +13,7 @@ const AddProduct = () => {
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [category, setCategory] = useState("");
-  const [photo, setPhoto] = useState("");
+  const photoRef = useRef(null); // file ref
 
   const handlePriceChange = (e) => {
     const value = Number(e.target.value);
@@ -31,26 +31,21 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Number(price) <= 0) {
-      alert("Price must be greater than 0");
+  
+    if (!name || !price || !stock || !category || !photoRef.current) {
+      alert("All fields are required.");
       return;
     }
-    if (Number(stock) <= 0) {
-      alert("Stock must be greater than 0");
-      return;
-    }
-
-    const productData = {
-      name,
-      price,
-      stock,
-      category,
-      photo,
-    };
-console.log(productData)
-    await dispatch(createProduct(productData));
+  
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("stock", stock);
+    formData.append("category", category);
+    formData.append("photo", photoRef.current); // this is the File object
+  
+    await dispatch(createProduct(formData));
     navigate("/admin/product");
-    
   };
 
   return (
@@ -89,8 +84,9 @@ console.log(productData)
         <input
           type="file"
           placeholder="Photo URL"
-          value={photo}
-          onChange={(e) => setPhoto(e.target.value)}
+          accept="image/*"
+         
+          onChange={(e) => photoRef.current = e.target.files[0]}
         />
         <button type="submit">Make</button>
       </form>

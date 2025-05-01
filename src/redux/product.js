@@ -66,22 +66,17 @@ export const fetchAllProducts = createAsyncThunk(
 
 export const createProduct = createAsyncThunk(
   "product/createProduct",
-  async (productData, { rejectWithValue }) => {
+  async (formData, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token');
+      console.log("🚀 Sending product data:", formData);
       const response = await axios.post(
         "http://localhost:4000/api/v1/product/new",
-        {
-          price: productData.price,
-          stock: productData.stock,
-          name: productData.name,
-          category: productData.category,
-          photo: productData.photo
-        },
+        formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json"
+            "Content-Type": "multipart/form-data",
           }
         }
       );
