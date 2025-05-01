@@ -36,6 +36,7 @@ const BarChart = lazy(() => import("./pages/admin/charts/BarCharts"));
 const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
 const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
 const Toss = lazy(() => import("./pages/admin/apps/toss"));
+const AddProduct = lazy(() => import("./pages/admin/AddProduct"));
 
 function App() {
 
@@ -95,6 +96,7 @@ function App() {
           <Route path="/admin/app/coupon" element={<Coupon />} />
           <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
           <Route path="/admin/app/toss" element={<Toss />} />
+          <Route path="/admin/AddProduct" element={<AddProduct/>}></Route>
         </Routes>
       </Suspense>
     </Router>

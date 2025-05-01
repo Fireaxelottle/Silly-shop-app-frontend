@@ -271,6 +271,12 @@
   margin: 0;
 }
 
+
+.admin-container main div button i {
+  font-size: 1.2rem;
+  color: white;
+}
+
 .admin-container main .ProductDiv {
   justify-content: space-between;
 }

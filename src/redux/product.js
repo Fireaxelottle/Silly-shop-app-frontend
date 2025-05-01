@@ -43,6 +43,55 @@ export const fetchCategories = createAsyncThunk(
   }
 );
 
+// Add new thunk for fetching all products
+export const fetchAllProducts = createAsyncThunk(
+  "product/fetchAllProducts",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(
+        "http://localhost:4000/api/v1/product/all",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+      return response.data.products;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const createProduct = createAsyncThunk(
+  "product/createProduct",
+  async (productData, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.post(
+        "http://localhost:4000/api/v1/product/new",
+        {
+          price: productData.price,
+          stock: productData.stock,
+          name: productData.name,
+          category: productData.category,
+          photo: productData.photo
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      return response.data.product;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
 const productSlice = createSlice({
   name: "product",
   initialState: {
@@ -50,6 +99,7 @@ const productSlice = createSlice({
     productSearch: [],
     productId: [],
     categories: [],
+    allProducts: [],
     status: "idle",
     error: null,
   },
@@ -68,6 +118,12 @@ const productSlice = createSlice({
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.categories = action.payload;
+      })
+      .addCase(fetchAllProducts.fulfilled, (state, action) => {
+        state.allProducts = action.payload;
+      })
+      .addCase(createProduct.fulfilled, (state, action) => {
+        state.allProducts.push(action.payload);
       })
       .addMatcher(
         (action) => action.type.endsWith("/pending"),

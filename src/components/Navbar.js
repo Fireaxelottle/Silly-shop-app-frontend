@@ -104,7 +104,6 @@ function Navbar() {
               </li>
               {user ? (
                 <li>
-                  {" "}
                   <img src={user.photo} alt={user.name} onClick={toggleUser} />
                 </li>
               ) : (
@@ -212,7 +211,7 @@ function Navbar() {
             <h1>Silly-Shop</h1>
           </div>
           <div className="Adm">
-            {user.name ? (
+            {user ? (
               <img src={user.photo} alt="" onClick={toggleUser} />
             ) : (
               <Link to="/login">Log-in</Link>
